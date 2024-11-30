@@ -1,0 +1,19 @@
+<?php
+
+function getDbConnection()
+{
+    $host = 'localhost'; // Ganti dengan host database Anda
+    $db = 'mvc_app'; // Nama database
+    $user = 'root'; // Ganti dengan username database Anda
+    $pass = ''; // Ganti dengan password database Anda
+    $charset = 'utf8mb4';
+
+    $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+    $options = [
+        PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        PDO::ATTR_EMULATE_PREPARES   => false,
+    ];
+
+    return new PDO($dsn, $user, $pass, $options);
+}
