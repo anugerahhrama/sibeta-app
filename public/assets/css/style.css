@@ -9,7 +9,7 @@
 
 body{
     font-family: "Poppins", sans-serif;
-    overflow: visible;
+    overflow-x: hidden;
 }
 
 /* Hide Scrollbar */
@@ -151,6 +151,11 @@ html {
 }
 .akun{
     margin-left: 1rem; 
+}
+
+.pembatas-wave{
+    width: 100%;
+    max-width: 100vw;
 }
 
 /* hero-1*/

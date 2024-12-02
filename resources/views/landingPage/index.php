@@ -22,7 +22,7 @@ ob_start();
                 <img src="/public/assets/img/landingPage/GarisLurus.svg" alt="garis-lurus" class="garis-lurus">
                 <div class="akun">
                     <a href="/src/register.php#register" class="daftar">Daftar</a>
-                    <a href="/src/login.html" class="masuk">Masuk</a>
+                    <a href="login" class="masuk">Masuk</a>
                 </div>
             </div>
         </nav>
@@ -39,7 +39,7 @@ ob_start();
         </div>
         <img src="/public/assets/img/landingPage/GedungSipil.svg" alt="">
     </section>
-    <img src="/public/assets/img/landingPage/wave.svg" alt="">
+    <img src="/public/assets/img/landingPage/wave.svg" alt="" class="pembatas-wave">
 <section class="hero-2" id="fitur">
     <h2 class="judul">Fitur Utama</h2>
     <div class="card-container">
@@ -82,7 +82,14 @@ ob_start();
         <i class="fa-solid fa-chevron-right"></i>
       </div>
       <div class="answer">
-        <p>Content here</p>
+        <p>
+        Alur Pengajuan Bebas Tanggungan Tugas Akhir
+-Mahasiswa login menggunakan akun yang sudah terdaftar atau membuat akun baru.
+- Melengkapi Data Diri. Pastikan data diri seperti NIM, program studi, dan informasi kontak telah diisi dengan benar.
+- Mahasiswa mengunggah file persyaratan melalui menu pengajuan.
+- Admin memeriksa kelengkapan dan validitas dokumen. Jika ada kekurangan, mahasiswa akan diminta melengkapi.
+- Setelah dokumen dinyatakan lengkap, admin menyetujui pengajuan sehingga bukti surat bebas tanggungan dapat diunduh kemudian diserahkan langsung oleh admin program studi.
+        </p>
       </div>
     </div>
     <div class="qna-item">
@@ -91,7 +98,14 @@ ob_start();
         <i class="fa-solid fa-chevron-right"></i>
       </div>
       <div class="answer">
-        <p>Content here</p>
+        <p>Dokumen yang perlu diunggah yaitu :
+
+Laporan Tugas Akhir/Skripsi
+Program Aplikasi Tugas Akhir/Skripsi
+Surat Pernyataan Publikasi (Jurnal/Paper/Conference/HAKI/dll)
+Distribusi Buku Skripsi/Laporan Akhir
+Distribusi Laporan Magang/PKL
+Scan TOEIC</p>
       </div>
     </div>
     <div class="qna-item">
@@ -100,7 +114,7 @@ ob_start();
         <i class="fa-solid fa-chevron-right"></i>
       </div>
       <div class="answer">
-        <p>2 x 24 jam setelah pengumpulan</p>
+        <p>Proses persetujuan biasanya memakan waktu kurang lebih maks 2x24 jam dan tergantung pada kelengkapan dokumen yang diunggah</p>
       </div>
     </div>
   </div>
@@ -183,5 +197,5 @@ ob_start();
 
 <?php
 $content = ob_get_clean();
-require_once __DIR__ . "/../main.php";
+require_once __DIR__ . "/../mainLandingPage.php";
 ?>
