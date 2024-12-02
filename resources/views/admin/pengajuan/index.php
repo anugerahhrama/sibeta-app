@@ -48,24 +48,58 @@ ob_start();
     </div>
 
     <div class="p-6 border-2 rounded-3xl mb-8">
-        <h1 class="font-semibold text-lg mb-8">
-            Unggah File
-        </h1>
+        <div class="flex justify-between items-center mb-4">
+            <h1 class="font-semibold text-lg">
+                Berkas Pengajuan Bebas Tanggungan
+            </h1>
+            <a href="<?= $router->route('pengajuan-tambah') ?>" class="text-gray-900 bg-[#FEBF10] hover:bg-[#FEBF10]/80 focus:ring-4 focus:ring-[#FEBF10] font-medium rounded-full text-sm px-10 py-2.5 focus:outline-none">
+                Tambah
+            </a>
+        </div>
         <!-- <hr class="border sm:mx-auto lg:my-4" /> -->
         <form action="">
-            <div class="p-6 border-2 rounded-2xl mb-6">
-                <h5 class="font-semibold text-lg mb-4">
-                    Laporan Tugas Akhir atau Skripsi <span class="font-medium text-sm text-[#DC3545]">* Wajib diisi</span>
-                </h5>
-                <div class="font-normal text-base mb-4 text-gray-500">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum necessitatibus dicta animi est laboriosam eum itaque nobis ullam quas molestiae et consequatur dolor impedit, tempore aspernatur non sed iusto repellat corrupti amet quia doloremque voluptas? Cumque, ab quidem! Reprehenderit quia nihil ex tempore velit inventore laudantium accusantium, quos error labore doloribus tempora saepe minus asperiores harum hic accusamus fugiat autem? Sed, quam! Quo voluptas eligendi dolore maiores inventore ad possimus odit rem corporis aliquid debitis iure, doloremque velit excepturi nam autem, blanditiis animi laudantium id praesentium suscipit. Eligendi tenetur laborum consequatur magni quasi voluptatum aut, quos, quod blanditiis aperiam ullam.
+            <div class="p-6 border-2 rounded-2xl mb-6 flex items-start gap-x-8">
+                <input id="default-checkbox" type="checkbox" value="" class="w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <div class="md:max-w-3xl">
+                    <h5 class="font-semibold text-lg mb-4">
+                        Laporan Tugas Akhir atau Skripsi <span class="font-medium text-sm text-[#DC3545]">* Wajib diisi</span>
+                    </h5>
+                    <div class="font-normal text-base mb-4 text-gray-500">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum necessitatibus dicta animi est laboriosam eum itaque nobis ullam quas molestiae et consequatur dolor impedit, tempore aspernatur non sed iusto repellat corrupti amet quia doloremque voluptas? Cumque, ab quidem! Reprehenderit quia nihil ex tempore velit inventore laudantium accusantium, quos error labore doloribus tempora saepe minus asperiores harum hic accusamus fugiat autem? Sed, quam! Quo voluptas eligendi dolore maiores inventore ad possimus odit rem corporis aliquid debitis iure, doloremque velit excepturi nam autem, blanditiis animi laudantium id praesentium suscipit. Eligendi tenetur laborum consequatur magni quasi voluptatum aut, quos, quod blanditiis aperiam ullam.
+                    </div>
                 </div>
-                <div class="flex justify-end mb-4">
+                <div class="flex justify-end mb-4 order-last">
                     <p class="font-normal text-base text-gray-500">
                         ukuran (max : 10Mb) | ekstensi (.pdf)
                     </p>
                 </div>
-                <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-full cursor-pointer bg-gray-50 focus:outline-none" id="file_input" type="file">
+            </div>
+            <div class="p-6 border-2 rounded-2xl mb-6 flex items-start gap-x-8">
+                <input id="default-checkbox" type="checkbox" value="" class="w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <div class="md:max-w-3xl">
+                    <h5 class="font-semibold text-lg mb-4">
+                        Laporan Tugas Akhir atau Skripsi <span class="font-medium text-sm text-[#DC3545]">* Wajib diisi</span>
+                    </h5>
+                    <div class="font-normal text-base mb-4 text-gray-500">
+                        <!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum necessitatibus dicta animi est laboriosam eum itaque nobis ullam quas molestiae et consequatur dolor impedit, tempore aspernatur non sed iusto repellat corrupti amet quia doloremque voluptas? Cumque, ab quidem! Reprehenderit quia nihil ex tempore velit inventore laudantium accusantium, quos error labore doloribus tempora saepe minus asperiores harum hic accusamus fugiat autem? Sed, quam! Quo voluptas eligendi dolore maiores inventore ad possimus odit rem corporis aliquid debitis iure, doloremque velit excepturi nam autem, blanditiis animi laudantium id praesentium suscipit. Eligendi tenetur laborum consequatur magni quasi voluptatum aut, quos, quod blanditiis aperiam ullam. -->
+                    </div>
+                </div>
+                <div class="flex justify-end mb-4 order-last">
+                    <p class="font-normal text-base text-gray-500">
+                        ukuran (max : 10Mb) | ekstensi (.pdf)
+                    </p>
+                </div>
+            </div>
+            <div class="flex justify-end gap-x-2">
+                <button type="button" class="text-[#5B5B5B] border border-[#5B5B5B] hover:bg-gray-50 focus:ring-4 focus:ring-[#FEBF10] font-medium rounded-full text-sm px-5 py-2.5 focus:outline-none">
+                    Kembali
+                </button>
+                <button type="button" class="text-white bg-[#DC3545] hover:bg-[#DC3545]/80 focus:ring-4 focus:ring-[#DC3545] font-medium rounded-full text-sm px-6 py-2.5 focus:outline-none">
+                    Hapus
+                </button>
+                <button type="button" class="text-white bg-[#0D6EFD] hover:bg-[#0D6EFD]/80 focus:ring-4 focus:ring-[#0D6EFD] font-medium rounded-full text-sm px-6 py-2.5 focus:outline-none">
+                    Edit
+                </button>
             </div>
         </form>
     </div>
