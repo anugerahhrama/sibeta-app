@@ -38,7 +38,7 @@ class LoginController extends Controller
                     if ($_SESSION['user']['role'] === "0") {
                         $this->redirect("/admin/beranda");
                     }
-                    $this->redirect("/beranda");
+                    $this->redirect("/data-diri");
                     exit;
                 } else {
                     echo "Password salah.";

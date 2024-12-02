@@ -19,8 +19,8 @@ ob_start();
       <a href="/src/landing-page.htmll#tentang-kami">Tentang Kami</a>
       <img src="public/assets/img/landingPage/GarisLurus.svg" alt="garis-lurus" class="garis-lurus">
       <div class="akun">
-        <a href="/src/register.php" class="daftar">Daftar</a>
-        <a href="#login" class="masuk">Masuk</a>
+        <a href="registrasi" class="daftar">Daftar</a>
+        <a href="login" class="masuk">Masuk</a>
       </div>
     </div>
   </nav>
@@ -109,7 +109,7 @@ ob_start();
       </form>
       <!-- Link daftar -->
       <p class="mt-6 text-center text-gray-600 text-sm mb-7 font-bold">Belum punya akun?
-        <a href="/src/register.php" class="text-[#FEBF10] hover:underline">Daftar</a>
+        <a href="register" class="text-[#FEBF10] hover:underline">Daftar</a>
       </p>
     </div>
     <?php
@@ -119,5 +119,5 @@ ob_start();
 
 <?php
 $content = ob_get_clean();
-require_once __DIR__ . "/../mainLandingPage.php";
+require_once __DIR__ . "/../main.php";
 ?>
