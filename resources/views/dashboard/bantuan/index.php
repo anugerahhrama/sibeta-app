@@ -8,12 +8,9 @@ ob_start();
 <div class="p-6 sm:ml-64">
     <div class="flex justify-between items-start mb-8">
         <div>
-            <h1 class="text-2xl font-semibold text-[#F05529]">
-                Halo, Asu!
+            <h1 class="text-2xl font-semibold">
+                Bantuan
             </h1>
-            <p class="text-base font-medium">
-                Selamat Datang di Sistem Bebas Tanggungan
-            </p>
         </div>
 
         <button id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation" class="text-black bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-200 font-medium rounded-full shadow-lg text-sm px-5 py-2.5 text-center inline-flex items-center" type="button">
@@ -50,45 +47,29 @@ ob_start();
 
     </div>
 
-    <div class="p-6 border-2 rounded-2xl">
+    <div class="p-6 border-2 rounded-3xl mb-8">
         <h1 class="font-semibold text-lg">
-            Data Mahasiswa
+            DIV - Teknik Informatika
         </h1>
         <hr class="border sm:mx-auto lg:my-4" />
-        <table class="w-full">
-            <tr>
-                <td class="text-start font-medium text-base w-40">
-                    Nama
-                </td>
-                <td>
-                    <input type="text" id="first_name" value="Ayleen Ruhul Qisthy" class="mb-4 bg-gray-50 border border-gray-300 text-gray-900 rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" readonly disabled />
-                </td>
-            </tr>
-            <tr>
-                <td class="text-start font-medium text-base w-fit">
-                    Nim
-                </td>
-                <td>
-                    <input type="text" id="first_name" value="2341720012" class="mb-4 bg-gray-50 border border-gray-300 text-gray-900 rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" readonly disabled />
-                </td>
-            </tr>
-            <tr>
-                <td class="text-start font-medium text-base w-fit">
-                    Program Studi
-                </td>
-                <td>
-                    <input type="text" id="first_name" value="D4 Teknik Informatika" class="mb-4 bg-gray-50 border border-gray-300 text-gray-900 rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" readonly disabled />
-                </td>
-            </tr>
-            <tr>
-                <td class="text-start font-medium text-base w-fit">
-                    Jurusan
-                </td>
-                <td>
-                    <input type="text" id="first_name" value="Teknologi Informasi" class="mb-4 bg-gray-50 border border-gray-300 text-gray-900 rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" readonly disabled />
-                </td>
-            </tr>
-        </table>
+        <div class="grid md:grid-cols-2 gap-6">
+            <div>
+                <p class="font-medium text-base mb-4">
+                    Mas Anggi (Chat Only)
+                </p>
+                <a href="#" class="font-medium text-base text-white px-6 py-2.5 bg-blue-500 hover:bg-blue-400 rounded-2xl focus:ring-4 focus:ring-blue-500">
+                    Hubungi
+                </a>
+            </div>
+            <div>
+                <p class="font-medium text-base mb-4">
+                    Mas Anggi (Chat Only)
+                </p>
+                <a href="#" class="font-medium text-base text-white px-6 py-2.5 bg-blue-500 hover:bg-blue-400 rounded-2xl focus:ring-4 focus:ring-blue-500">
+                    Hubungi
+                </a>
+            </div>
+        </div>
     </div>
 </div>
 

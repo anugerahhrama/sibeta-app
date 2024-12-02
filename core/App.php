@@ -34,7 +34,9 @@ class App
         } else {
             error_log("404 Not Found: $method " . implode('/', $urlSegments));
             http_response_code(404);
-            echo "404 Not Found";
+            // echo "404 Not Found cok";
+            require_once __DIR__ . ('/../resources/views/errors/404.php');
+            exit;
         }
     }
 }
