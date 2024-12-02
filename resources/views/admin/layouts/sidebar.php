@@ -19,7 +19,7 @@ $currentUrl = $_SERVER['REQUEST_URI'];
         <hr class="border-white sm:mx-auto lg:my-4" />
         <ul class="space-y-2 font-medium">
             <li>
-                <a href="beranda" class="<?php echo str_contains($currentUrl, 'admin/beranda') ? 'text-[#0F1F43] bg-[#FEBF10]' : 'text-white hover:text-[#0F1F43] hover:bg-[#FEBF10]'; ?> flex rounded-lg items-center p-2 group">
+                <a href="<?= $router->route('admin-beranda') ?>" class="<?php echo str_contains($currentUrl, 'admin/beranda') ? 'text-[#0F1F43] bg-[#FEBF10]' : 'text-white hover:text-[#0F1F43] hover:bg-[#FEBF10]'; ?> flex rounded-lg items-center p-2 group">
                     <svg class="w-6 h-6 transition duration-75" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                         <path fill-rule="evenodd" d="M4.857 3A1.857 1.857 0 0 0 3 4.857v4.286C3 10.169 3.831 11 4.857 11h4.286A1.857 1.857 0 0 0 11 9.143V4.857A1.857 1.857 0 0 0 9.143 3H4.857Zm10 0A1.857 1.857 0 0 0 13 4.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 21 9.143V4.857A1.857 1.857 0 0 0 19.143 3h-4.286Zm-10 10A1.857 1.857 0 0 0 3 14.857v4.286C3 20.169 3.831 21 4.857 21h4.286A1.857 1.857 0 0 0 11 19.143v-4.286A1.857 1.857 0 0 0 9.143 13H4.857Zm10 0A1.857 1.857 0 0 0 13 14.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 21 19.143v-4.286A1.857 1.857 0 0 0 19.143 13h-4.286Z" clip-rule="evenodd" />
                     </svg>
@@ -50,7 +50,7 @@ $currentUrl = $_SERVER['REQUEST_URI'];
                 </a>
             </li>
             <li>
-                <a href="tanggungan" class="<?php echo $currentUrl === '/sibeta-app/tanggungan' ? 'text-[#0F1F43] bg-[#FEBF10]' : 'text-white hover:text-[#0F1F43] hover:bg-[#FEBF10]' ?> flex rounded-lg items-center p-2 group">
+                <a href="tanggungan" class="<?php echo str_contains($currentUrl, 'admin/tanggungan') ? 'text-[#0F1F43] bg-[#FEBF10]' : 'text-white hover:text-[#0F1F43] hover:bg-[#FEBF10]' ?> flex rounded-lg items-center p-2 group">
                     <svg class="w-6 h-6 transition duration-75" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                         <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z" clip-rule="evenodd" />
                     </svg>
@@ -60,7 +60,7 @@ $currentUrl = $_SERVER['REQUEST_URI'];
                 </a>
             </li>
             <li>
-                <a href="bantuan" class="<?php echo $currentUrl === '/sibeta-app/bantuan' ? 'text-[#0F1F43] bg-[#FEBF10]' : 'text-white hover:text-[#0F1F43] hover:bg-[#FEBF10]' ?> flex rounded-lg items-center p-2 group">
+                <a href="<?= $router->route('bantuan') ?>" class="<?php echo str_contains($currentUrl, 'admin/bantuan') ? 'text-[#0F1F43] bg-[#FEBF10]' : 'text-white hover:text-[#0F1F43] hover:bg-[#FEBF10]' ?> flex rounded-lg items-center p-2 group">
                     <svg class="w-6 h-6 transition duration-75" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                         <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm9.008-3.018a1.502 1.502 0 0 1 2.522 1.159v.024a1.44 1.44 0 0 1-1.493 1.418 1 1 0 0 0-1.037.999V14a1 1 0 1 0 2 0v-.539a3.44 3.44 0 0 0 2.529-3.256 3.502 3.502 0 0 0-7-.255 1 1 0 0 0 2 .076c.014-.398.187-.774.48-1.044Zm.982 7.026a1 1 0 1 0 0 2H12a1 1 0 1 0 0-2h-.01Z" clip-rule="evenodd" />
                     </svg>

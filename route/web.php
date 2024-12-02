@@ -34,7 +34,7 @@ $router->get('tanggungan', [TanggunganController::class, 'index']);
 $router->get('bantuan', [BantuanController::class, 'index']);
 
 // Admin Route
-$router->get('admin/beranda', [AdminBerandaController::class, 'index']);
+$router->get('admin/beranda', [AdminBerandaController::class, 'index'])->name('admin-beranda');
 
 // AdminPengguna
 $router->get('admin/pengguna', [AdminPenggunaController::class, 'index'])->name('pengguna');
@@ -45,9 +45,9 @@ $router->get('admin/pengguna/permintaan', [AdminPenggunaController::class, 'perm
 $router->get('admin/pengajuan', [AdminPengajuanController::class, 'index'])->name('pengajuan');
 $router->get('admin/pengajuan/tambah', [AdminPengajuanController::class, 'tambah'])->name('pengajuan-tambah');
 
-$router->get('admin/bantuan', [AdminBantuanController::class, 'index']);
-$router->get('admin/bantuan/tambah', [AdminBantuanController::class, 'tambah']);
-$router->get('admin/status', [AdminStatusController::class, 'index']);
+$router->get('admin/bantuan', [AdminBantuanController::class, 'index'])->name('bantuan');
+$router->get('admin/bantuan/tambah', [AdminBantuanController::class, 'tambah'])->name('bantuan-tambah');
+$router->get('admin/status', [AdminStatusController::class, 'index'])->name('status');
 
 //error
 $router->get('404', function () {
