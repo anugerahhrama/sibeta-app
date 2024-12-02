@@ -9,4 +9,10 @@ abstract class Controller
         extract($data);
         include __DIR__ . '/../resources/views/' . $view . '.php';
     }
+
+    protected function redirect($url)
+    {
+        header("Location: " . BASE_URL . $url); // Hanya menggunakan header untuk redirect
+        exit; // Hentikan eksekusi skrip setelah redirect
+    }
 }

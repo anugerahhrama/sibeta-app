@@ -12,7 +12,9 @@ use App\Controllers\TanggunganController;
 $router->get('', [HomeController::class, 'index']);
 
 //Login Route
-$router->get('login', [LoginController::class, 'index']);
+$router->get('login', [LoginController::class, 'login']);
+$router->post('login-proses', [LoginController::class, 'login_proses']);
+$router->get('logout', [LoginController::class, 'logout']);
 
 // User Route
 $router->get('beranda', [BerandaController::class, 'index']);
@@ -25,7 +27,7 @@ $router->get('bantuan', [BantuanController::class, 'index']);
 $router->get('admin/pengajuan', [AdminPengajuanController::class, 'index']);
 
 //error
-$router->get('404', function(){
+$router->get('404', function () {
     $this->view('errors/404');
 });
 
