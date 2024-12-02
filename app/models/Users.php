@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
+use PDO;
+
 class Users extends Model
 {
-    protected $table = 'users';
+    protected static $table = 'users';
 
     public function getAllUsers()
     {
@@ -32,5 +34,10 @@ class Users extends Model
     public function deleteUser($id)
     {
         $this->delete($this->table, $id);
+    }
+
+    public function getUserByEmail($email)
+    {
+        return $this->query("SELECT id, password FROM {$this->table} WHERE email = :email", ['email' => $email])->fetch(PDO::FETCH_ASSOC);
     }
 }
