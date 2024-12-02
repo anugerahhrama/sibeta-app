@@ -2,17 +2,17 @@
 
 namespace App\Controllers;
 
-class TanggunganController extends Controller
+class AdminBerandaController extends Controller
 {
     public function __construct()
     {
-        if (!isset($_SESSION['user'])) {
+        if (!isset($_SESSION['user']) || $_SESSION['user']['role'] === 0) {
             $this->redirect('/login');
         }
     }
 
     public function index()
     {
-        $this->view('dashboard/tanggungan/index');
+        $this->view('admin/beranda/index');
     }
 }
