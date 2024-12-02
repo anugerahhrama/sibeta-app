@@ -2,20 +2,17 @@
 
 namespace App\Controllers;
 
-use App\Models\Users;
-
-class BerandaController extends Controller
+class AdminBerandaController extends Controller
 {
-
     public function __construct()
     {
-        if (!isset($_SESSION['user'])) {
+        if (!isset($_SESSION['user']) || $_SESSION['user']['role'] === 0) {
             $this->redirect('/login');
         }
     }
 
     public function index()
     {
-        $this->view('dashboard/beranda/index');
+        $this->view('admin/beranda/index');
     }
 }

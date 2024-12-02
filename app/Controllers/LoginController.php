@@ -35,7 +35,7 @@ class LoginController extends Controller
                 if (password_verify($password, $user['password'])) {
                     // Set session
                     $_SESSION['user'] = $user;
-                    if ($_SESSION['role'] === 0) {
+                    if ($_SESSION['user']['role'] === "0") {
                         $this->redirect("/admin/beranda");
                     }
                     $this->redirect("/data-diri");

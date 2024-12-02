@@ -6,6 +6,7 @@ abstract class Controller
 {
     protected function view($view, $data = [])
     {
+        global $router;
         extract($data);
         include __DIR__ . '/../resources/views/' . $view . '.php';
     }
@@ -32,3 +33,4 @@ abstract class Controller
         exit; // Hentikan eksekusi skrip
     }
 }
+

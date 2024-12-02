@@ -1,7 +1,9 @@
 <?php
 
+use App\Controllers\AdminBerandaController;
 use App\Controllers\AdminPengajuanController;
 use App\Controllers\AdminBantuanController;
+use App\Controllers\AdminPenggunaController;
 use App\Controllers\BantuanController;
 use App\Controllers\BerandaController;
 use App\Controllers\DataDiriController;
@@ -32,7 +34,17 @@ $router->get('tanggungan', [TanggunganController::class, 'index']);
 $router->get('bantuan', [BantuanController::class, 'index']);
 
 // Admin Route
-$router->get('admin/pengajuan', [AdminPengajuanController::class, 'index']);
+$router->get('admin/beranda', [AdminBerandaController::class, 'index']);
+
+// AdminPengguna
+$router->get('admin/pengguna', [AdminPenggunaController::class, 'index'])->name('pengguna');
+$router->get('admin/pengguna/tambah', [AdminPenggunaController::class, 'tambah'])->name('pengguna-tambah');
+$router->get('admin/pengguna/permintaan', [AdminPenggunaController::class, 'permintaan'])->name('pengguna-permintaan');
+
+// Admin Pengajuan
+$router->get('admin/pengajuan', [AdminPengajuanController::class, 'index'])->name('pengajuan');
+$router->get('admin/pengajuan/tambah', [AdminPengajuanController::class, 'tambah'])->name('pengajuan-tambah');
+
 $router->get('admin/bantuan', [AdminBantuanController::class, 'index']);
 $router->get('admin/bantuan/tambah', [AdminBantuanController::class, 'tambah']);
 $router->get('admin/status', [AdminStatusController::class, 'index']);

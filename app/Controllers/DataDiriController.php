@@ -6,11 +6,17 @@ use App\Models\Users;
 
 class DataDiriController extends Controller
 {
+    public function __construct()
+    {
+        if (!isset($_SESSION['user'])) {
+            $this->redirect('/login');
+        }
+    }
+
     public function index()
     {
         $userModel = new Users();
-        $datas = $userModel->all();
-        $data = $datas[0];
+        $data = $userModel->where('id', $_SESSION['user']['id'])->first();
         $this->view('dashboard/dataDiri/index', compact('data'));
     }
 }
