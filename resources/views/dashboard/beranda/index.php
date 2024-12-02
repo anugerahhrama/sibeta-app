@@ -30,7 +30,7 @@ ob_start();
                     Nama
                 </td>
                 <td>
-                    <input type="text" id="first_name" value="Ayleen Ruhul Qisthy" class="mb-4 bg-gray-50 border border-gray-300 text-gray-900 rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" readonly disabled />
+                    <input name="nama" type="text" id="first_name" value="<?= $_SESSION['user']['name'] ?>" class="mb-4 bg-gray-50 border border-gray-300 text-gray-900 rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" readonly disabled />
                 </td>
             </tr>
             <tr>
@@ -38,11 +38,11 @@ ob_start();
                     Nim
                 </td>
                 <td>
-                    <input type="text" id="first_name" value="2341720012" class="mb-4 bg-gray-50 border border-gray-300 text-gray-900 rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" readonly disabled />
+                    <input name="nim" type="text" id="first_name" value="" class="mb-4 bg-gray-50 border border-gray-300 text-gray-900 rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" readonly disabled />
                 </td>
             </tr>
             <tr>
-                <td class="text-start font-medium text-base w-fit">
+                <td name="nim" class="text-start font-medium text-base w-fit">
                     Program Studi
                 </td>
                 <td>

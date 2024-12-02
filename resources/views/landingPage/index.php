@@ -19,7 +19,7 @@ ob_start();
       <a href="#tentang-kami">Tentang Kami</a>
       <img src="public/assets/img/landingPage/GarisLurus.svg" alt="garis-lurus" class="garis-lurus">
       <div class="akun">
-        <a href="/src/register.php#register" class="daftar">Daftar</a>
+        <a href="registrasi" class="daftar">Daftar</a>
         <a href="login" class="masuk">Masuk</a>
       </div>
     </div>
