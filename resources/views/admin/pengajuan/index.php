@@ -8,12 +8,9 @@ ob_start();
 <div class="p-6 sm:ml-64">
     <div class="flex justify-between items-start mb-8">
         <div>
-            <h1 class="text-2xl font-semibold text-[#F05529]">
-                Halo, Asu!
+            <h1 class="text-2xl font-semibold">
+                Pengajuan Bebas Tanggungan
             </h1>
-            <p class="text-base font-medium">
-                Selamat Datang di Sistem Bebas Tanggungan
-            </p>
         </div>
 
         <button id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation" class="text-black bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-200 font-medium rounded-full shadow-lg text-sm px-5 py-2.5 text-center inline-flex items-center" type="button">
@@ -50,45 +47,27 @@ ob_start();
 
     </div>
 
-    <div class="p-6 border-2 rounded-2xl">
-        <h1 class="font-semibold text-lg">
-            Data Mahasiswa
+    <div class="p-6 border-2 rounded-3xl mb-8">
+        <h1 class="font-semibold text-lg mb-8">
+            Unggah File
         </h1>
-        <hr class="border sm:mx-auto lg:my-4" />
-        <table class="w-full">
-            <tr>
-                <td class="text-start font-medium text-base w-40">
-                    Nama
-                </td>
-                <td>
-                    <input type="text" id="first_name" value="Ayleen Ruhul Qisthy" class="mb-4 bg-gray-50 border border-gray-300 text-gray-900 rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" readonly disabled />
-                </td>
-            </tr>
-            <tr>
-                <td class="text-start font-medium text-base w-fit">
-                    Nim
-                </td>
-                <td>
-                    <input type="text" id="first_name" value="2341720012" class="mb-4 bg-gray-50 border border-gray-300 text-gray-900 rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" readonly disabled />
-                </td>
-            </tr>
-            <tr>
-                <td class="text-start font-medium text-base w-fit">
-                    Program Studi
-                </td>
-                <td>
-                    <input type="text" id="first_name" value="D4 Teknik Informatika" class="mb-4 bg-gray-50 border border-gray-300 text-gray-900 rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" readonly disabled />
-                </td>
-            </tr>
-            <tr>
-                <td class="text-start font-medium text-base w-fit">
-                    Jurusan
-                </td>
-                <td>
-                    <input type="text" id="first_name" value="Teknologi Informasi" class="mb-4 bg-gray-50 border border-gray-300 text-gray-900 rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" readonly disabled />
-                </td>
-            </tr>
-        </table>
+        <!-- <hr class="border sm:mx-auto lg:my-4" /> -->
+        <form action="">
+            <div class="p-6 border-2 rounded-2xl mb-6">
+                <h5 class="font-semibold text-lg mb-4">
+                    Laporan Tugas Akhir atau Skripsi <span class="font-medium text-sm text-[#DC3545]">* Wajib diisi</span>
+                </h5>
+                <div class="font-normal text-base mb-4 text-gray-500">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum necessitatibus dicta animi est laboriosam eum itaque nobis ullam quas molestiae et consequatur dolor impedit, tempore aspernatur non sed iusto repellat corrupti amet quia doloremque voluptas? Cumque, ab quidem! Reprehenderit quia nihil ex tempore velit inventore laudantium accusantium, quos error labore doloribus tempora saepe minus asperiores harum hic accusamus fugiat autem? Sed, quam! Quo voluptas eligendi dolore maiores inventore ad possimus odit rem corporis aliquid debitis iure, doloremque velit excepturi nam autem, blanditiis animi laudantium id praesentium suscipit. Eligendi tenetur laborum consequatur magni quasi voluptatum aut, quos, quod blanditiis aperiam ullam.
+                </div>
+                <div class="flex justify-end mb-4">
+                    <p class="font-normal text-base text-gray-500">
+                        ukuran (max : 10Mb) | ekstensi (.pdf)
+                    </p>
+                </div>
+                <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-full cursor-pointer bg-gray-50 focus:outline-none" id="file_input" type="file">
+            </div>
+        </form>
     </div>
 </div>
 
