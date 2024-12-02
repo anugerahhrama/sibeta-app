@@ -4,9 +4,9 @@ require_once __DIR__ . '/../core/Autoloader.php';
 Autoloader::register();
 
 require_once __DIR__ . '/../core/Router.php';
-require_once __DIR__ . '/../core/Controller.php'; // Pastikan Controller.php ada
+require_once __DIR__ . '/../core/Model.php';
+require_once __DIR__ . '/../core/Controller.php';
 require_once __DIR__ . '/../core/App.php';
-require_once __DIR__ . '/../app/Models/User.php';
 require_once __DIR__ . '/../config/database.php';
 
 
