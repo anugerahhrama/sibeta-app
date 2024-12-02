@@ -5,10 +5,14 @@ use App\Controllers\BantuanController;
 use App\Controllers\BerandaController;
 use App\Controllers\DataDiriController;
 use App\Controllers\HomeController;
+use App\Controllers\LoginController;
 use App\Controllers\PengajuanController;
 use App\Controllers\TanggunganController;
 
 $router->get('', [HomeController::class, 'index']);
+
+//Login Route
+$router->get('login', [LoginController::class, 'index']);
 
 // User Route
 $router->get('beranda', [BerandaController::class, 'index']);
