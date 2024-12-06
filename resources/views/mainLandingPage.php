@@ -2,4 +2,4 @@
 
 <?php echo $content; ?>
 
-<?php require_once __DIR__ . "/partials/endLandingPage.php"; ?>
+<?php require_once __DIR__ . "/partials/end.php"; ?>
