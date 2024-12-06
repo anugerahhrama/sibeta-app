@@ -9,7 +9,7 @@ class DataDiriController extends Controller
     public function __construct()
     {
         if (!isset($_SESSION['user'])) {
-            $this->redirect('/login');
+            $this->redirect('login');
         }
     }
 

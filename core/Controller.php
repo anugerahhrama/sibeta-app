@@ -2,8 +2,23 @@
 
 namespace App\Controllers;
 
+use Router;
+
 abstract class Controller
 {
+
+    protected static Router $router;
+
+    public static function setRouter(Router $router)
+    {
+        self::$router = $router;
+    }
+
+    protected function route(string $name, array $params = []): string
+    {
+        return self::$router->route($name, $params);
+    }
+
     protected function view($view, $data = [])
     {
         global $router;

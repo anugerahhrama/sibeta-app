@@ -21,14 +21,14 @@ ob_start();
             Tambah Pengguna
         </h1>
         <hr class="border sm:mx-auto lg:my-4" />
-        <form action="">
+        <form action="<?= BASE_URL ?>admin/pengguna/simpan" method="POST">
             <table class="w-full mb-4">
                 <tr>
                     <td class="text-start font-medium text-base w-40">
                         Nama
                     </td>
                     <td>
-                        <input type="text" id="first_name" value="" class="mb-4 bg-gray-50 border border-gray-300 text-gray-900 rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2" />
+                        <input type="text" id="" name="nama" value="" class="mb-4 bg-gray-50 border border-gray-300 text-gray-900 rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2" required />
                     </td>
                 </tr>
                 <tr>
@@ -36,7 +36,7 @@ ob_start();
                         Nim
                     </td>
                     <td>
-                        <input type="text" id="first_name" value="" class="mb-4 bg-gray-50 border border-gray-300 text-gray-900 rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2" />
+                        <input type="text" id="" name="nim" value="" class="mb-4 bg-gray-50 border border-gray-300 text-gray-900 rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2" required />
                     </td>
                 </tr>
                 <tr>
@@ -44,7 +44,7 @@ ob_start();
                         Email
                     </td>
                     <td>
-                        <input type="text" id="first_name" value="" class="mb-4 bg-gray-50 border border-gray-300 text-gray-900 rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2" />
+                        <input type="email" id="" name="email" value="" class="mb-4 bg-gray-50 border border-gray-300 text-gray-900 rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2" required />
                     </td>
                 </tr>
                 <tr>
@@ -52,7 +52,7 @@ ob_start();
                         Password
                     </td>
                     <td>
-                        <input type="text" id="first_name" value="" class="mb-4 bg-gray-50 border border-gray-300 text-gray-900 rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2" />
+                        <input type="password" id="" name="password" value="" class="mb-4 bg-gray-50 border border-gray-300 text-gray-900 rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2" required />
                     </td>
                 </tr>
                 <tr>
@@ -60,7 +60,7 @@ ob_start();
                         Nomor Telepone
                     </td>
                     <td>
-                        <input type="text" id="first_name" value="" class="mb-4 bg-gray-50 border border-gray-300 text-gray-900 rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2" />
+                        <input type="text" id="" name="no_tlp" value="" class="mb-4 bg-gray-50 border border-gray-300 text-gray-900 rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2" />
                     </td>
                 </tr>
                 <tr>
@@ -68,7 +68,7 @@ ob_start();
                         Peran
                     </td>
                     <td>
-                        <select id="countries" class="mb-4 bg-gray-50 border border-gray-300 text-gray-900 rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full max-w-md p-2">
+                        <select id="" name="role" class="mb-4 bg-gray-50 border border-gray-300 text-gray-900 rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full max-w-md p-2" required>
                             <option selected>Pilih Peran</option>
                             <option value="0">Admin</option>
                             <option value="1">Mahasiswa</option>
@@ -80,7 +80,7 @@ ob_start();
                 <button type="button" class="text-[#5B5B5B] border border-[#5B5B5B] hover:bg-gray-50 focus:ring-4 focus:ring-[#FEBF10] font-medium rounded-full text-sm px-5 py-2.5 focus:outline-none">
                     Kembali
                 </button>
-                <button type="button" class="text-gray-900 bg-[#FEBF10] hover:bg-[#FEBF10]/80 focus:ring-4 focus:ring-[#FEBF10] font-medium rounded-full text-sm px-5 py-2.5 focus:outline-none">
+                <button type="submit" class="text-gray-900 bg-[#FEBF10] hover:bg-[#FEBF10]/80 focus:ring-4 focus:ring-[#FEBF10] font-medium rounded-full text-sm px-5 py-2.5 focus:outline-none">
                     Simpan
                 </button>
             </div>
