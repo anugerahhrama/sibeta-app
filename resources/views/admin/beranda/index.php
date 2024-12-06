@@ -122,7 +122,7 @@ ob_start();
                                     28-03-2024
                                 </td>
                                 <td class="px-6 py-2">
-                                    <button class="py-2 px-5 bg-blue-500 text-white rounded-full">
+                                    <button class="py-2 px-5 bg-blue-500 text-white rounded-full" >
                                         Verifikasi
                                     </button>
                                 </td>
