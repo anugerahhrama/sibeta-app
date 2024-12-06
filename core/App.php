@@ -16,7 +16,7 @@ class App
 
         error_log("Received request: $method " . implode('/', $urlSegments)); // Log rute yang diterima
 
-        $handler = $this->router->resolve($method, $urlSegments);
+        $handler = $this->router->resolve($method, implode('/', $urlSegments));
 
         if ($handler) {
             if (is_callable($handler)) {

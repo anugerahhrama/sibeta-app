@@ -6,6 +6,17 @@ use App\Models\Users;
 
 class LoginController extends Controller
 {
+    // public function __construct()
+    // {
+    //     if (isset($_SESSION['user'])) {
+    //         if ($_SESSION['user']['role'] === "0") {
+    //             $this->redirect("admin/beranda");
+    //         } else {
+    //             $this->redirect("beranda");
+    //         }
+    //     }
+    // }
+
     public function login()
     {
         $this->view('auth/login', ['title' => 'login']);
@@ -38,7 +49,7 @@ class LoginController extends Controller
                     if ($_SESSION['user']['role'] === "0") {
                         $this->redirect("/admin/beranda");
                     }
-                    $this->redirect("/data-diri");
+                    $this->redirect("beranda");
                     exit;
                 } else {
                     echo "Password salah.";
