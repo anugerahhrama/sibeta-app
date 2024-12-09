@@ -51,7 +51,7 @@ ob_start();
     </div>
 </nav>
 
-<section id="beranda" class="bg-[url('public/assets/img/landingPage/wavePutih.svg')] h-screen pt-[calc(4rem+1px)]">
+<section id="beranda" class="bg-[url('public/assets/img/landingPage/wavePutih.svg')] pt-[calc(4rem+1px)]">
     <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
         <div class="mr-auto place-self-center lg:col-span-7">
             <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl">
@@ -81,7 +81,7 @@ ob_start();
     </div>
 </section>
 <img src="public/assets/img/landingPage/wave.svg" alt="" class="relative -bottom-2">
-<section id="fitur" class="bg-[url('public/assets/img/landingPage/waveBiru.svg')] h-screen pt-[calc(6rem+1px)]">
+<section id="fitur" class="bg-[url('public/assets/img/landingPage/waveBiru.svg')] pt-[calc(6rem+1px)]">
     <div class="pb-18 px-4 mx-auto max-w-screen-xl lg:pb-28 lg:px-6 ">
         <div class="mx-auto max-w-screen-full text-center mb-8 lg:mb-16">
             <div class="w-full rounded-full px-5 py-3 bg-[#FEBF10]">
@@ -136,7 +136,7 @@ ob_start();
                 </h1>
                 <div id="accordion-collapse" data-accordion="collapse">
                     <h2 id="accordion-collapse-heading-1">
-                        <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
+                        <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 bg-white rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
                             <span>Apa itu Sistem Bebas Tanggungan Tugas Akhir?</span>
                             <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5" />
@@ -144,14 +144,14 @@ ob_start();
                         </button>
                     </h2>
                     <div id="accordion-collapse-body-1" class="hidden" aria-labelledby="accordion-collapse-heading-1">
-                        <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+                        <div class="p-5 border border-b-0 border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-900">
                             <p class="mb-2 text-gray-500 dark:text-gray-400">
-                              Sistem Bebas Tanggungan Tugas Akhir adalah sistem di Jurusan Teknologi Informasi, Politeknik Negeri Malang yang bertujuan untuk memudahkan proses verifikasi bebas tanggungan bagi mahasiswa yang akan menyelesaikan tugas akhir. Proyek ini bertujuan meningkatkan efisiensi operasional, akurasi data, dan mengurangi kesalahan akibat pengelolaan manual dalam proses administratif Tugas Akhir di Jurusan Teknologi Informasi Politeknik Negeri Malang.
+                                Sistem Bebas Tanggungan Tugas Akhir adalah sistem di Jurusan Teknologi Informasi, Politeknik Negeri Malang yang bertujuan untuk memudahkan proses verifikasi bebas tanggungan bagi mahasiswa yang akan menyelesaikan tugas akhir. Proyek ini bertujuan meningkatkan efisiensi operasional, akurasi data, dan mengurangi kesalahan akibat pengelolaan manual dalam proses administratif Tugas Akhir di Jurusan Teknologi Informasi Politeknik Negeri Malang.
                             </p>
                         </div>
                     </div>
                     <h2 id="accordion-collapse-heading-2">
-                        <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3" data-accordion-target="#accordion-collapse-body-2" aria-expanded="false" aria-controls="accordion-collapse-body-2">
+                        <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 bg-white focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3" data-accordion-target="#accordion-collapse-body-2" aria-expanded="false" aria-controls="accordion-collapse-body-2">
                             <span>Bagaimana proses mengajukan bebas tanggungan tugas akhir?</span>
                             <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5" />
@@ -159,29 +159,29 @@ ob_start();
                         </button>
                     </h2>
                     <div id="accordion-collapse-body-2" class="hidden" aria-labelledby="accordion-collapse-heading-2">
-                        <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
+                        <div class="p-5 border border-b-0 border-gray-200 bg-white dark:border-gray-700">
                             <p class="mb-2 text-gray-500 dark:text-gray-400">
-                              Alur Pengajuan Bebas Tanggungan Tugas Akhir:
+                                Alur Pengajuan Bebas Tanggungan Tugas Akhir:
                             </p>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
-                              Mahasiswa login menggunakan akun yang sudah terdaftar atau membuat akun baru.
+                                Mahasiswa login menggunakan akun yang sudah terdaftar atau membuat akun baru.
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
-                              Melengkapi Data Diri. Pastikan data diri seperti NIM, program studi, dan informasi kontak telah diisi dengan benar.
+                                Melengkapi Data Diri. Pastikan data diri seperti NIM, program studi, dan informasi kontak telah diisi dengan benar.
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
-                              Mahasiswa mengunggah file persyaratan melalui menu pengajuan.
+                                Mahasiswa mengunggah file persyaratan melalui menu pengajuan.
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
-                              Admin memeriksa kelengkapan dan validitas dokumen. Jika ada kekurangan, mahasiswa akan diminta melengkapi.
+                                Admin memeriksa kelengkapan dan validitas dokumen. Jika ada kekurangan, mahasiswa akan diminta melengkapi.
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
-                              Setelah dokumen dinyatakan lengkap, admin menyetujui pengajuan sehingga bukti surat bebas tanggungan dapat diunduh kemudian diserahkan langsung oleh admin program studi.
+                                Setelah dokumen dinyatakan lengkap, admin menyetujui pengajuan sehingga bukti surat bebas tanggungan dapat diunduh kemudian diserahkan langsung oleh admin program studi.
                             </li>
                         </div>
                     </div>
                     <h2 id="accordion-collapse-heading-3">
-                        <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3" data-accordion-target="#accordion-collapse-body-3" aria-expanded="false" aria-controls="accordion-collapse-body-3">
+                        <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-gray-200 bg-white focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3" data-accordion-target="#accordion-collapse-body-3" aria-expanded="false" aria-controls="accordion-collapse-body-3">
                             <span>Dokumen apa saja yang perlu diunggah?</span>
                             <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5" />
@@ -189,26 +189,26 @@ ob_start();
                         </button>
                     </h2>
                     <div id="accordion-collapse-body-3" class="hidden" aria-labelledby="accordion-collapse-heading-3">
-                        <div class="p-5 border border-t-0 border-gray-200 dark:border-gray-700">
-                        <p class="mb-2 text-gray-500 dark:text-gray-400">
-                          Dokumen yang perlu diunggah yaitu :
+                        <div class="p-5 border border-t-0 border-gray-200 bg-white dark:border-gray-700">
+                            <p class="mb-2 text-gray-500 dark:text-gray-400">
+                                Dokumen yang perlu diunggah yaitu :
                             </p>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
-                              Program Aplikasi Tugas Akhir/Skripsi.
+                                Program Aplikasi Tugas Akhir/Skripsi.
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
-                              Surat Pernyataan Publikasi (Jurnal/Paper/Conference/HAKI/dll).
+                                Surat Pernyataan Publikasi (Jurnal/Paper/Conference/HAKI/dll).
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
-                              Distribusi Buku Skripsi/Laporan Akhir.
+                                Distribusi Buku Skripsi/Laporan Akhir.
                             </li>
                             <li class="mb-2 text-gray-500 dark:text-gray-400">
-                              Scan TOEIC.
+                                Scan TOEIC.
                             </li>
                         </div>
                     </div>
                     <h2 id="accordion-collapse-heading-4">
-                        <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3" data-accordion-target="#accordion-collapse-body-4" aria-expanded="false" aria-controls="accordion-collapse-body-4">
+                        <button type="button" class="flex items-center justify-between w-full p-5 font-medium bg-white rtl:text-right text-gray-500 border border-b border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3" data-accordion-target="#accordion-collapse-body-4" aria-expanded="false" aria-controls="accordion-collapse-body-4">
                             <span>Berapa lama waktu yang dibutuhkan untuk proses persetujuan?</span>
                             <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5" />
@@ -216,9 +216,9 @@ ob_start();
                         </button>
                     </h2>
                     <div id="accordion-collapse-body-4" class="hidden" aria-labelledby="accordion-collapse-heading-4">
-                        <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
+                        <div class="p-5 border border-b-0 border-gray-200 bg-white dark:border-gray-700">
                             <p class="mb-2 text-gray-500 dark:text-gray-400">
-                            Proses persetujuan biasanya memakan waktu kurang lebih maks 2x24 jam dan tergantung pada kelengkapan dokumen yang diunggah
+                                Proses persetujuan biasanya memakan waktu kurang lebih maks 2x24 jam dan tergantung pada kelengkapan dokumen yang diunggah
                             </p>
                         </div>
                     </div>

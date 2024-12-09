@@ -9,7 +9,7 @@ ob_start();
     <div class="flex justify-between items-start mb-8">
         <div>
             <h1 class="text-2xl font-semibold text-[#F05529]">
-                Halo, Asu!
+                Halo, <?= $_SESSION['user']['name'] ?>!
             </h1>
             <p class="text-base font-medium">
                 Selamat Datang di Sistem Bebas Tanggungan Admin

@@ -4,21 +4,18 @@ namespace App\Controllers;
 
 use Router;
 
-abstract class Controller
+abstract class Controller extends Router
 {
-
-    protected static Router $router;
-
-    public static function setRouter(Router $router)
+    public function __construct()
     {
-        self::$router = $router;
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start(); // Pastikan session dimulai
+        }
     }
 
-    protected function route(string $name, array $params = []): string
-    {
-        return self::$router->route($name, $params);
-    }
-
+    /**
+     * Menampilkan view dan mengirimkan data ke dalamnya
+     */
     protected function view($view, $data = [])
     {
         global $router;
@@ -26,26 +23,40 @@ abstract class Controller
         include __DIR__ . '/../resources/views/' . $view . '.php';
     }
 
+    /**
+     * Redirect ke URL tertentu
+     */
     protected function redirect($url)
     {
-        header("Location: " . BASE_URL . $url); // Hanya menggunakan header untuk redirect
-        exit; // Hentikan eksekusi skrip setelah redirect
+        header("Location: " . BASE_URL . $url);
+        exit;
     }
 
-    function back($fallbackUrl = '/login')
+    /**
+     * Redirect ke halaman sebelumnya atau ke URL fallback
+     */
+    public function back($fallbackUrl = '/login')
     {
-        // Menggunakan null coalescing untuk mendapatkan referer
         $referer = $_SERVER['HTTP_REFERER'] ?? null;
 
-        // Memeriksa apakah referer tidak kosong dan valid
         if (!empty($referer) && filter_var($referer, FILTER_VALIDATE_URL)) {
-            // Jika referer ada dan valid, arahkan ke halaman sebelumnya
             header("Location: " . BASE_URL . $referer);
         } else {
-            // Jika tidak ada referer atau tidak valid, arahkan ke fallback URL
             header("Location: " . BASE_URL . $fallbackUrl);
         }
-        exit; // Hentikan eksekusi skrip
+        exit;
+    }
+
+    /**
+     * Menyimpan flash message di session sebelum redirect
+     */
+    protected function with($key, $message)
+    {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        $_SESSION['flash'][$key] = $message;
+        return $this; // Agar chaining method memungkinkan
     }
 }
-
