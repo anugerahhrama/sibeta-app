@@ -41,7 +41,7 @@ ob_start();
                     <hr class="w-px h-full bg-gray-400 border-0">
                 </li>
                 <li>
-                    <a href="registrasi" class="block py-2 px-3 text-gray-900 rounded hover:text-white hover:bg-[#0F1F43]  md:border-0 md:hover:text-[#FFFFF] md:p-0">Daftar</a>
+                    <a href="registrasi" class="block py-2 px-3 text-gray-900 rounded hover:text-white hover:bg-[#0F1F43] md:hover:bg-transparent md:border-0 md:hover:text-grey-500 md:p-0">Daftar</a>
                 </li>
                 <li>
                     <a href="login" class="block py-2 px-3 text-gray-900 rounded hover:text-white hover:bg-[#0F1F43]  md:border-0 md:hover:text-[#FFFFF] md:p-0">Masuk</a>
