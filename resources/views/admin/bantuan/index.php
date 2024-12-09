@@ -14,55 +14,45 @@ ob_start();
         </div>
 
         <?php require_once __DIR__ . "/../layouts/profileBtn.php"; ?>
-
     </div>
-    <div class="menu-bantuan">
-        <?php var_dump($data)?>
-        <?php foreach ($groupedData as $prodiName => $contact): ?>
+
+    <?php foreach ($data as $item): ?>
+    <div class="p-6 border-2 rounded-3xl mb-4">
         <div class="flex items-center justify-between mb-4">
             <h1 class="font-semibold text-lg">
-                <?= htmlspecialchars($prodiName); ?>
+                <?= htmlspecialchars($item['prodi_name']) ?>
             </h1>
             <a href="<?= $router->route('bantuan-tambah') ?>" class="font-medium text-base text-white px-6 py-2.5 bg-[#FEBF10] hover:bg-[#F5A500] rounded-2xl focus:ring-4 focus:ring-[#FEBF10]">
                 Tambah
             </a>
         </div>
+
         <hr class="border sm:mx-auto lg:my-4" />
         <div class="grid md:grid-cols-2 gap-6">
-            <?php foreach ($contacts as $contact): ?>
-                <div>
-                    <div class="flex items-center mb-4">
-                        <input type="checkbox" class="mr-2">
-                        <p class="font-medium text-base">
-                            <?= htmlspecialchars($contact['contact_name']); ?> (<?= htmlspecialchars($contact['contact_method']); ?>)
-                        </p>
+                <?php foreach ($data as $row){ ?>
+                    <div>
+                        <div class="flex items-center mb-4">
+                            <input type="checkbox" class="mr-2">
+                            <p class="font-medium text-base">
+                                <?= htmlspecialchars($row['contact_name']) ?>
+                            </p>
+                        </div>
+                        <a href="#" class="font-medium text-base text-white px-6 py-2.5 bg-blue-500 hover:bg-blue-400 rounded-2xl focus:ring-4 focus:ring-blue-500">
+                            Hubungi
+                        </a>
                     </div>
-                </div>
-            <?php endforeach; ?>
+                    <div class="flex justify-end space-x-2 mt-16">
+                        <a href="#" class="font-medium text-base text-white px-6 py-2.5 bg-[#DC3545] hover:bg-[#B02A37] rounded-2xl focus:ring-4 focus:ring-[#DC3545]">
+                            Hapus
+                        </a>
+                        <a href="#" class="font-medium text-base text-white px-6 py-2.5 bg-[#0D6EFD] hover:bg-[#0C5CCA] rounded-2xl focus:ring-4 focus:ring-[#0D6EFD]">
+                            Edit
+                        </a>
+                    </div>
+                <?php } ?>
         </div>
-    <?php endforeach; ?>
-
     </div>
-    <?php if (!empty($groupedData)): ?>
-    <?php foreach ($groupedData as $prodiName => $contacts): ?>
-        <h3><?= htmlspecialchars($prodiName); ?></h3>
-        <ul>
-            <?php foreach ($contacts as $contact): ?>
-                <li>
-                    <?= htmlspecialchars($contact['contact_name']); ?> 
-                    (<?= htmlspecialchars($contact['contact_method']); ?>)
-                </li>
-            <?php endforeach; ?>
-        </ul>
-    <?php endforeach; ?>
-<?php else: ?>
-    <p>No data available.</p>
-<?php endif; ?>
-
-
-</div>
-
-
+<?php endforeach; ?>
 
 
 
