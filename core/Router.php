@@ -36,11 +36,11 @@ class Router
     {
         $this->get("$name", [$controller, 'index'])->name("$name.index");
         $this->get("$name/create", [$controller, 'create'])->name("$name.create");
-        $this->post("$name", [$controller, 'store'])->name("$name.store");
+        $this->post("$name/store", [$controller, 'store'])->name("$name.store");
         $this->get("$name/{id}", [$controller, 'show'])->name("$name.show");
         $this->get("$name/{id}/edit", [$controller, 'edit'])->name("$name.edit");
-        $this->put("$name/{id}", [$controller, 'update'])->name("$name.update");
-        $this->delete("$name/{id}", [$controller, 'destroy'])->name("$name.destroy");
+        $this->post("$name/update/{id}", [$controller, 'update'])->name("$name.update");
+        $this->post("$name/delete/{id}", [$controller, 'destroy'])->name("$name.destroy");
     }
 
     public function name(string $name): self
@@ -94,14 +94,29 @@ class Router
 
         if ($handler) {
             // Inject router instance globally
-            Controller::setRouter($this);
 
-            if (is_callable($handler)) {
-                call_user_func($handler);
-            } elseif (is_array($handler)) {
-                [$controllerClass, $method] = $handler;
+            list($handlerFunction, $params) = $handler; // Ambil handler dan params
+
+            if (is_callable($handlerFunction)) {
+                call_user_func($handlerFunction, $params); // Pass params ke callable
+            } elseif (is_array($handlerFunction)) {
+                [$controllerClass, $method] = $handlerFunction;
+
+                if (empty($controllerClass) || empty($method)) {
+                    throw new Exception("Handler class or method cannot be empty.");
+                }
+
+                if (!class_exists($controllerClass)) {
+                    throw new Exception("Handler class '{$controllerClass}' not found.");
+                }
+
                 $controller = new $controllerClass();
-                $controller->$method();
+
+                if (!method_exists($controller, $method)) {
+                    throw new Exception("Handler method '{$method}' not found in class '{$controllerClass}'.");
+                }
+
+                $controller->$method($params); // Pass params ke metode controller
             }
             return;
         }
@@ -121,20 +136,37 @@ class Router
 
     public function resolve(string $method, string $path)
     {
-        if (isset($this->routes[$method][$path])) {
-            $handler = $this->routes[$method][$path]['handler'];
-
-            if (is_array($handler) && class_exists($handler[0]) && method_exists($handler[0], $handler[1])) {
-                return $handler;
+        foreach ($this->routes[$method] as $routePath => $handler) {
+            if ($this->matchRoute($routePath, $path)) {
+                $params = $this->extractParams($routePath, $path);
+                return [$handler['handler'], $params]; // Mengembalikan handler dan params
             }
-
-            if (is_callable($handler)) {
-                return $handler;
-            }
-
-            throw new Exception("Handler for route '{$path}' is invalid.");
         }
 
         return null;
+    }
+
+    private function matchRoute(string $routePath, string $path): bool
+    {
+        // Mengonversi route ke regex
+        $regex = preg_replace('/{(\w+)}/', '([^\/]+)', $routePath); // Menangkap alfanumerik
+        $regex = '#^' . str_replace('/', '\/', $regex) . '$#';
+
+        return preg_match($regex, $path) === 1;
+    }
+
+    private function extractParams(string $routePath, string $path): array
+    {
+        $routeParts = explode('/', $routePath);
+        $pathParts = explode('/', $path);
+        $params = [];
+
+        foreach ($routeParts as $index => $part) {
+            if (preg_match('/{(\w+)}/', $part, $matches)) {
+                $params[$matches[1]] = $pathParts[$index]; // Menyimpan nilai dinamis
+            }
+        }
+
+        return $params;
     }
 }

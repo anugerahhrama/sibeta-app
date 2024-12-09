@@ -66,6 +66,20 @@ class LoginController extends Controller
         session_unset(); // Menghapus semua variabel sesi
         session_destroy(); // Menghancurkan sesi
 
-        $this->redirect('/login');
+        $this->redirect('login');
+    }
+
+    public function tambah_admin()
+    {
+        $userModel = new Users();
+
+        $hashedPassword = password_hash('admin123', PASSWORD_BCRYPT);
+
+        $userId = $userModel->create([
+            'name' => 'Admin Jurusan',
+            'email' => 'admin@test.com',
+            'password' => $hashedPassword,
+            'role' => 0
+        ]);
     }
 }
