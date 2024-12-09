@@ -17,15 +17,15 @@ use App\Models\Contact;
 
 $router->get('', [HomeController::class, 'index']);
 
-//Registrasi Route
+// Registrasi Route
 $router->get('registrasi', [RegistrasiController::class, 'index']);
 $router->post('registrasi-proses', [RegistrasiController::class, 'registrasi_proses']);
 
-
-//Login Route
-$router->get('login', [LoginController::class, 'login']);
+// Login Route
+$router->get('login', [LoginController::class, 'login'])->name('login');
 $router->post('login-proses', [LoginController::class, 'login_proses']);
 $router->get('logout', [LoginController::class, 'logout']);
+$router->get('tambah-admin', [LoginController::class, 'tambah_admin']);
 
 // User Route
 $router->get('beranda', [BerandaController::class, 'index']);
@@ -39,8 +39,11 @@ $router->get('bantuan', [BantuanController::class, 'index']);
 $router->get('admin/beranda', [AdminBerandaController::class, 'index'])->name('admin-beranda');
 
 // AdminPengguna
-$router->get('admin/pengguna', [AdminPenggunaController::class, 'index'])->name('pengguna');
-$router->get('admin/pengguna/tambah', [AdminPenggunaController::class, 'tambah'])->name('pengguna-tambah');
+$router->resource('admin/pengguna', AdminPenggunaController::class);
+// $router->get('admin/pengguna', [AdminPenggunaController::class, 'index'])->name('admin/pengguna.index');
+// $router->get('admin/pengguna/tambah', [AdminPenggunaController::class, 'create'])->name('admin/pengguna.create');
+// $router->post('admin/pengguna/simpan', [AdminPenggunaController::class, 'store'])->name('admin/pengguna.store');
+// $router->get('admin/pengguna/{id}', [AdminPenggunaController::class, 'edit'])->name('admin/pengguna.edit');
 $router->get('admin/pengguna/permintaan', [AdminPenggunaController::class, 'permintaan'])->name('pengguna-permintaan');
 
 // Admin Pengajuan
@@ -54,12 +57,8 @@ $router->get('admin/status', [AdminStatusController::class, 'index'])->name('sta
 //Admin Bantuan
 $router->get('ambil-data', [AdminBantuanController::class, 'bantuan_proses']);
 
-//error
 $router->get('404', function () {
-    $this->view('errors/404');
+    include __DIR__ . '/../views/errors/404.php';
 });
 
-
-$router->get('test', function () {
-    echo "Test route works!";
-});
+$router->dispatch();

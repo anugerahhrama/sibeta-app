@@ -2,28 +2,16 @@
 
 function getDbConnection()
 {
-    $serverName = "34.101.209.102,1433"; // Public IP
-    $database = "sibeta";
+    $dsn = "sqlsrv:Server=34.101.209.102,1433;Database=sibeta";
     $username = "sqlserver";
     $password = "admin123";
-    // $port = 1433; // Port default SQL Server
 
     try {
-        // Buat DSN untuk koneksi
-        $dsn = "sqlsrv:Server=$serverName;Database=$database";
-
-        // Inisialisasi PDO
-        $conn = new PDO($dsn, $username, $password);
-
-        // Atur atribut error mode agar PDO melempar exception jika terjadi error
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        echo "Connected successfully!";
-        return $conn;
+        $pdo = new PDO($dsn, $username, $password);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        return $pdo;
     } catch (PDOException $e) {
-        // Tangani error dan tampilkan pesan
-        die("Connection failed: " . $e->getMessage());
+        echo "Koneksi gagal: " . $e->getMessage();
+        return null;
     }
 }
-
-

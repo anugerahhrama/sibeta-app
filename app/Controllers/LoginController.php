@@ -6,6 +6,17 @@ use App\Models\Users;
 
 class LoginController extends Controller
 {
+    // public function __construct()
+    // {
+    //     if (isset($_SESSION['user'])) {
+    //         if ($_SESSION['user']['role'] === "0") {
+    //             $this->redirect("admin/beranda");
+    //         } else {
+    //             $this->redirect("beranda");
+    //         }
+    //     }
+    // }
+
     public function login()
     {
         $this->view('auth/login', ['title' => 'login']);
@@ -38,7 +49,7 @@ class LoginController extends Controller
                     if ($_SESSION['user']['role'] === "0") {
                         $this->redirect("/admin/beranda");
                     }
-                    $this->redirect("/data-diri");
+                    $this->redirect("beranda");
                     exit;
                 } else {
                     echo "Password salah.";
@@ -55,6 +66,20 @@ class LoginController extends Controller
         session_unset(); // Menghapus semua variabel sesi
         session_destroy(); // Menghancurkan sesi
 
-        $this->redirect('/login');
+        $this->redirect('login');
+    }
+
+    public function tambah_admin()
+    {
+        $userModel = new Users();
+
+        $hashedPassword = password_hash('admin123', PASSWORD_BCRYPT);
+
+        $userId = $userModel->create([
+            'name' => 'Admin Jurusan',
+            'email' => 'admin@test.com',
+            'password' => $hashedPassword,
+            'role' => 0
+        ]);
     }
 }
