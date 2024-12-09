@@ -13,6 +13,7 @@ use App\Controllers\PengajuanController;
 use App\Controllers\RegistrasiController;
 use App\Controllers\TanggunganController;
 use App\Controllers\AdminStatusController;
+use App\Models\Contact;
 
 $router->get('', [HomeController::class, 'index']);
 
@@ -29,6 +30,7 @@ $router->get('tambah-admin', [LoginController::class, 'tambah_admin']);
 // User Route
 $router->get('beranda', [BerandaController::class, 'index']);
 $router->get('data-diri', [DataDiriController::class, 'index']);
+$router->post('data-diri-proses', [DataDiriController::class, 'store']);
 $router->get('pengajuan', [PengajuanController::class, 'index']);
 $router->get('tanggungan', [TanggunganController::class, 'index']);
 $router->get('bantuan', [BantuanController::class, 'index']);
@@ -52,7 +54,9 @@ $router->get('admin/bantuan', [AdminBantuanController::class, 'index'])->name('b
 $router->get('admin/bantuan/tambah', [AdminBantuanController::class, 'tambah'])->name('bantuan-tambah');
 $router->get('admin/status', [AdminStatusController::class, 'index'])->name('status');
 
-// Error Route
+//Admin Bantuan
+$router->get('ambil-data', [AdminBantuanController::class, 'bantuan_proses']);
+
 $router->get('404', function () {
     include __DIR__ . '/../views/errors/404.php';
 });

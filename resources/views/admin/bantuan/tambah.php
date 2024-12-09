@@ -59,13 +59,14 @@ ob_start();
         </div>
     </form>
     <div class="flex justify-end space-x-2 mt-16">
-        <a href="#" class="font-medium text-base text-grey px-6 py-2.5 bg-transparent border border-[#5B5B5B] rounded-2xl">
-            kembali
+        <a href="admin/bantuan" class="font-medium text-base text-grey px-6 py-2.5 bg-transparent border border-[#5B5B5B] rounded-2xl">
+            Kembali
         </a>
 
-        <a href="#" class="font-medium text-base text-white px-6 py-2.5 bg-[#FEBF10] hover:bg-[#F5A500] rounded-2xl focus:ring-4 focus:ring-[#FEBF10]">
+        <button type="submit" class="font-medium text-base text-white px-6 py-2.5 bg-[#FEBF10] hover:bg-[#F5A500] rounded-2xl focus:ring-4 focus:ring-[#FEBF10]">
             Tambah
-        </a>
+        </button>
+
     </div>
             
         </div>

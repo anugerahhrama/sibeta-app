@@ -281,12 +281,12 @@ ob_start();
                     <ul class="text-white/80 text-sm font-medium">
                         <li class="mb-4">
                             <a href="" class="hover:underline ">
-                                support@polinema.ac.id
+                                jti@polinema.ac.id
                             </a>
                         </li>
                         <li>
                             <a href="" class="hover:underline">
-                                tugasakhir@polinema.ac.id
+                                (0341) 404424404425
                             </a>
                         </li>
                     </ul>
