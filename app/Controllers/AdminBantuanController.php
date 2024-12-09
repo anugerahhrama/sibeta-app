@@ -23,7 +23,9 @@ class AdminBantuanController extends Controller
         $this->view('admin/bantuan/tambah');
     }
 
-
+    public function hapus(){
+        
+    }
  }
     
     
