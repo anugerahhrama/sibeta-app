@@ -30,15 +30,15 @@ ob_start();
                     Nama
                 </td>
                 <td>
-                    <input name="nama" type="text" id="first_name" value="<?= $_SESSION['user']['name'] ?>" class="mb-4 bg-gray-50 border border-gray-300 text-gray-900 rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" readonly disabled />
+                    <input name="nama" type="text" id="first_name" value="<?= $data['name'] ?>" class="mb-4 bg-gray-50 border border-gray-300 text-gray-900 rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" readonly disabled />
                 </td>
             </tr>
             <tr>
                 <td class="text-start font-medium text-base w-fit">
-                    Nim
+                    NIM
                 </td>
                 <td>
-                    <input name="nim" type="text" id="first_name" value="" class="mb-4 bg-gray-50 border border-gray-300 text-gray-900 rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" readonly disabled />
+                    <input name="nim" type="text" id="first_name" value="<?= $data['nim'] ?>" class="mb-4 bg-gray-50 border border-gray-300 text-gray-900 rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" readonly disabled />
                 </td>
             </tr>
             <tr>
@@ -46,7 +46,7 @@ ob_start();
                     Program Studi
                 </td>
                 <td>
-                    <input type="text" id="first_name" value="D4 Teknik Informatika" class="mb-4 bg-gray-50 border border-gray-300 text-gray-900 rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" readonly disabled />
+                    <input type="text" id="first_name" value="<?= $data['prodi'] ?>" class="mb-4 bg-gray-50 border border-gray-300 text-gray-900 rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" readonly disabled />
                 </td>
             </tr>
             <tr>

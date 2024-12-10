@@ -30,19 +30,23 @@ class RegistrasiController extends Controller
 
             // Validasi data
             if (empty($nama) || empty($nim) || empty($email) || empty($password) || empty($prodi)) {
-                die("Pastikan semua data terisi.");
+                $this->redirect("register");
+                // die("Pastikan semua data terisi.");
             }
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                die("Email tidak valid.");
+                $this->redirect("register");
+                // die("Email tidak valid.");
             }
             if (!is_numeric($prodi)) {
-                die("Prodi ID harus berupa angka.");
+                $this->redirect("register");
+                // die("Prodi ID harus berupa angka.");
             }
 
             // Validasi email
             $userEmail = $userModel->where('email', $email)->first();
             if ($userEmail) { // Sesuaikan dengan cara kerja model Anda
-                die("Email sudah terdaftar. Gunakan email lain.");
+                $this->redirect("register");
+                // die("Email sudah terdaftar. Gunakan email lain.");
             }
 
             // Hash password sebelum menyimpannya
@@ -70,12 +74,13 @@ class RegistrasiController extends Controller
                 ]);
 
                 if ($DetailUser) {
-                    $this->redirect("/data-diri");
+                    $this->redirect("login");
                 } else {
-                    $this->redirect("/register");
+                    $this->redirect("register");
                 }
             } else {
-                echo "Gagal menambahkan pengguna.";
+                $this->redirect("register");
+                // echo "Gagal menambahkan pengguna.";
             }
         }
     }

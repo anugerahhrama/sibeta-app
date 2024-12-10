@@ -84,7 +84,32 @@ ob_start();
                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a8.949 8.949 0 0 0 4.951-1.488A3.987 3.987 0 0 0 13 16h-2a3.987 3.987 0 0 0-3.951 3.512A8.948 8.948 0 0 0 12 21Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                                         </svg>
 
-                                        Apple MacBook Pro 17"
+                                        John Doe
+                                    </div>
+                                </td>
+                                <td class="px-6 py-2">
+                                    2341720174
+                                </td>
+                                <td class="px-6 py-2">
+                                    D4 Teknik Informatika
+                                </td>
+                                <td class="px-6 py-2">
+                                    28-03-2024
+                                </td>
+                                <td class="px-6 py-2">
+                                    <a href="<?= $router->route('status') ?>" class="py-2 px-5 bg-blue-500 text-white rounded-full">
+                                        Verifikasi
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr class="bg-white">
+                                <td class="px-6 py-2">
+                                    <div class="flex items-center gap-x-4">
+                                        <svg class="w-6 h-6 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a8.949 8.949 0 0 0 4.951-1.488A3.987 3.987 0 0 0 13 16h-2a3.987 3.987 0 0 0-3.951 3.512A8.948 8.948 0 0 0 12 21Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                        </svg>
+
+                                        John Doe
                                     </div>
                                 </td>
                                 <td class="px-6 py-2">
@@ -102,6 +127,34 @@ ob_start();
                                     </button>
                                 </td>
                             </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="hidden" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
+            <div class="p-6 border-2 rounded-2xl">
+                <div class="relative overflow-x-auto">
+                    <table class="w-full text-sm text-left rtl:text-right">
+                        <thead class="text-sm text-gray-700 uppercase border-b">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">
+                                    Nama
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Nim
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Program Studi
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Tanggal Pengajuan
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
                             <tr class="bg-white">
                                 <td class="px-6 py-2">
                                     <div class="flex items-center gap-x-4">
@@ -109,20 +162,45 @@ ob_start();
                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a8.949 8.949 0 0 0 4.951-1.488A3.987 3.987 0 0 0 13 16h-2a3.987 3.987 0 0 0-3.951 3.512A8.948 8.948 0 0 0 12 21Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                                         </svg>
 
-                                        Apple MacBook Pro 17"
+                                        John Doe
                                     </div>
                                 </td>
                                 <td class="px-6 py-2">
                                     2341720174
                                 </td>
                                 <td class="px-6 py-2">
-                                    D4 Teknik Informatika
+                                    D4 Sistem Informasi Bisnis
                                 </td>
                                 <td class="px-6 py-2">
                                     28-03-2024
                                 </td>
                                 <td class="px-6 py-2">
-                                    <button class="py-2 px-5 bg-blue-500 text-white rounded-full" >
+                                    <button class="py-2 px-5 bg-blue-500 text-white rounded-full">
+                                        Verifikasi
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="bg-white">
+                                <td class="px-6 py-2">
+                                    <div class="flex items-center gap-x-4">
+                                        <svg class="w-6 h-6 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a8.949 8.949 0 0 0 4.951-1.488A3.987 3.987 0 0 0 13 16h-2a3.987 3.987 0 0 0-3.951 3.512A8.948 8.948 0 0 0 12 21Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                        </svg>
+
+                                        John Doe
+                                    </div>
+                                </td>
+                                <td class="px-6 py-2">
+                                    2341720174
+                                </td>
+                                <td class="px-6 py-2">
+                                    D4 Sistem Informasi Bisnis
+                                </td>
+                                <td class="px-6 py-2">
+                                    28-03-2024
+                                </td>
+                                <td class="px-6 py-2">
+                                    <button class="py-2 px-5 bg-blue-500 text-white rounded-full">
                                         Verifikasi
                                     </button>
                                 </td>
@@ -132,11 +210,83 @@ ob_start();
                 </div>
             </div>
         </div>
-        <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
-            <p class="text-sm text-gray-500 dark:text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Dashboard tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-        </div>
-        <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="settings" role="tabpanel" aria-labelledby="settings-tab">
-            <p class="text-sm text-gray-500 dark:text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Settings tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
+        <div class="hidden" id="settings" role="tabpanel" aria-labelledby="settings-tab">
+            <div class="p-6 border-2 rounded-2xl">
+                <div class="relative overflow-x-auto">
+                    <table class="w-full text-sm text-left rtl:text-right">
+                        <thead class="text-sm text-gray-700 uppercase border-b">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">
+                                    Nama
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Nim
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Program Studi
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Tanggal Pengajuan
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="bg-white">
+                                <td class="px-6 py-2">
+                                    <div class="flex items-center gap-x-4">
+                                        <svg class="w-6 h-6 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a8.949 8.949 0 0 0 4.951-1.488A3.987 3.987 0 0 0 13 16h-2a3.987 3.987 0 0 0-3.951 3.512A8.948 8.948 0 0 0 12 21Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                        </svg>
+
+                                        John Doe
+                                    </div>
+                                </td>
+                                <td class="px-6 py-2">
+                                    2341720174
+                                </td>
+                                <td class="px-6 py-2">
+                                    D2 PPLS
+                                </td>
+                                <td class="px-6 py-2">
+                                    28-03-2024
+                                </td>
+                                <td class="px-6 py-2">
+                                    <button class="py-2 px-5 bg-blue-500 text-white rounded-full">
+                                        Verifikasi
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="bg-white">
+                                <td class="px-6 py-2">
+                                    <div class="flex items-center gap-x-4">
+                                        <svg class="w-6 h-6 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a8.949 8.949 0 0 0 4.951-1.488A3.987 3.987 0 0 0 13 16h-2a3.987 3.987 0 0 0-3.951 3.512A8.948 8.948 0 0 0 12 21Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                        </svg>
+
+                                        John Doe
+                                    </div>
+                                </td>
+                                <td class="px-6 py-2">
+                                    2341720174
+                                </td>
+                                <td class="px-6 py-2">
+                                    D2 PPLS
+                                </td>
+                                <td class="px-6 py-2">
+                                    28-03-2024
+                                </td>
+                                <td class="px-6 py-2">
+                                    <button class="py-2 px-5 bg-blue-500 text-white rounded-full">
+                                        Verifikasi
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 
