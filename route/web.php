@@ -27,11 +27,18 @@ $router->post('login-proses', [LoginController::class, 'login_proses']);
 $router->get('logout', [LoginController::class, 'logout']);
 $router->get('tambah-admin', [LoginController::class, 'tambah_admin']);
 
-// User Route
-$router->get('beranda', [BerandaController::class, 'index']);
+// User Route Beranda
+$router->resource('beranda', BerandaController::class);
+
+
+
 $router->get('data-diri', [DataDiriController::class, 'index']);
 $router->post('data-diri-proses', [DataDiriController::class, 'store']);
+
 $router->get('pengajuan', [PengajuanController::class, 'index']);
+$router->post('pengajuan/upload', [PengajuanController::class, 'store']);
+
+
 $router->get('tanggungan', [TanggunganController::class, 'index']);
 $router->get('bantuan', [BantuanController::class, 'index']);
 
@@ -47,8 +54,7 @@ $router->resource('admin/pengguna', AdminPenggunaController::class);
 $router->get('admin/pengguna/permintaan', [AdminPenggunaController::class, 'permintaan'])->name('pengguna-permintaan');
 
 // Admin Pengajuan
-$router->get('admin/pengajuan', [AdminPengajuanController::class, 'index'])->name('pengajuan');
-$router->get('admin/pengajuan/tambah', [AdminPengajuanController::class, 'tambah'])->name('pengajuan-tambah');
+$router->resource('admin/pengajuan', AdminPengajuanController::class);
 
 $router->get('admin/bantuan', [AdminBantuanController::class, 'index'])->name('bantuan');
 $router->get('admin/bantuan/tambah', [AdminBantuanController::class, 'tambah'])->name('bantuan-tambah');

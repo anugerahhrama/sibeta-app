@@ -41,10 +41,10 @@ ob_start();
                     <hr class="w-px h-full bg-gray-400 border-0">
                 </li>
                 <li>
-                    <a href="registrasi" class="block py-2 px-3 text-gray-900 rounded hover:text-white hover:bg-[#0F1F43]  md:border-0 md:hover:text-[#FFFFF] md:p-0">Daftar</a>
+                    <a href="registrasi" class="block py-2 px-3 text-gray-900 rounded hover:text-[#0F1F43] hover:bg-[#0F1F43] md:hover:bg-transparent md:border-0 md:hover:text-grey-white md:p-0">Daftar</a>
                 </li>
                 <li>
-                    <a href="login" class="block py-2 px-3 text-gray-900 rounded hover:text-white hover:bg-[#0F1F43]  md:border-0 md:hover:text-[#FFFFF] md:p-0">Masuk</a>
+                    <a href="login" class="block py-2 px-3 text-gray-900 rounded hover:text-[#0F1F43] hover:bg-[#0F1F43] md:hover:bg-transparent md:border-0 md:hover:text-grey-white md:p-0">Masuk</a>
                 </li>
             </ul>
         </div>
@@ -82,7 +82,7 @@ ob_start();
 </section>
 <img src="public/assets/img/landingPage/wave.svg" alt="" class="relative -bottom-2">
 <section id="fitur" class="bg-[url('public/assets/img/landingPage/waveBiru.svg')] pt-[calc(6rem+1px)]">
-    <div class="pb-18 px-4 mx-auto max-w-screen-xl lg:pb-28 lg:px-6 ">
+    <div class="pb-8 px-4 mx-auto max-w-screen-xl lg:pb-28 lg:px-6 ">
         <div class="mx-auto max-w-screen-full text-center mb-8 lg:mb-16">
             <div class="w-full rounded-full px-5 py-3 bg-[#FEBF10]">
                 <p class="text-3xl font-extrabold tracking-tight leading-none md:text-4xl xl:text-5xl">
