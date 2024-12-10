@@ -60,8 +60,7 @@ $router->get('admin/bantuan', [AdminBantuanController::class, 'index'])->name('b
 $router->get('admin/bantuan/tambah', [AdminBantuanController::class, 'tambah'])->name('bantuan-tambah');
 $router->get('admin/status', [AdminStatusController::class, 'index'])->name('status');
 
-//Admin Bantuan
-$router->get('ambil-data', [AdminBantuanController::class, 'bantuan_proses']);
+
 
 $router->get('404', function () {
     include __DIR__ . '/../views/errors/404.php';
