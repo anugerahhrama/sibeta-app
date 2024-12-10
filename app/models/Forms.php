@@ -4,8 +4,8 @@ namespace App\Models;
 
 use PDO;
 
-class UserDetail extends Model
+class Forms extends Model
 {
     protected static $table = 'forms';
-    
 }
+

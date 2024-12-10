@@ -45,7 +45,7 @@ class AdminPenggunaController extends Controller
 
             // Validasi data
             if (empty($_POST['nama']) || empty($_POST['email']) || empty($_POST['password']) || empty($_POST['role'])) {
-                $this->redirect('admin/pengguna/' . $data_id . '/edit')->with('success', 'error');
+                $this->redirect($this->route('admin/pengguna.create'))->with('success', 'error');
                 return;
             }
 
@@ -102,7 +102,7 @@ class AdminPenggunaController extends Controller
 
             // Tangani pengecualian dan redirect ke halaman create dengan pesan kesalahan
             $_SESSION['error_message'] = $e->getMessage();
-            $this->redirect('admin/pengguna/' . $data_id . '/edit')->with('success', $e->getMessage());
+            $this->redirect($this->route('admin/pengguna.create'))->with('success', $e->getMessage());
         }
     }
 

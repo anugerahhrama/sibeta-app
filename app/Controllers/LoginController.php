@@ -33,7 +33,8 @@ class LoginController extends Controller
 
             // Validasi input kosong
             if (empty($email) || empty($password)) {
-                echo "Email dan password wajib diisi.";
+                $this->redirect("login");
+                // echo "Email dan password wajib diisi.";
                 return;
             }
 
@@ -47,15 +48,17 @@ class LoginController extends Controller
                     // Set session
                     $_SESSION['user'] = $user;
                     if ($_SESSION['user']['role'] === "0") {
-                        $this->redirect("/admin/beranda");
+                        $this->redirect("admin/beranda");
                     }
                     $this->redirect("beranda");
                     exit;
                 } else {
-                    echo "Password salah.";
+                    $this->redirect("login");
+                    // echo "Password salah.";
                 }
             } else {
-                echo "Email tidak ditemukan.";
+                // echo "Email tidak ditemukan.";
+                $this->redirect("login");
             }
         }
     }
