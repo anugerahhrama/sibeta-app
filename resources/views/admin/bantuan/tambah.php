@@ -12,29 +12,10 @@ ob_start();
                 Bantuan
             </h1>
         </div>
+        <?php require_once __DIR__ . "/../layouts/profileBtn.php"; ?>
+ </div>
+    
 
-        <div id="dropdownInformation" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
-            <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
-                <div>Bonnie Green</div>
-                <div class="font-medium truncate">name@flowbite.com</div>
-            </div>
-            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownInformationButton">
-                <li>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
-                </li>
-                <li>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
-                </li>
-                <li>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
-                </li>
-            </ul>
-            <div class="py-2">
-                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
-            </div>
-        </div>
-
-    </div>
     <div class="p-6 border-2 rounded-3xl mb-8 space-y-8"> <!-- Tambahkan wrapper dengan jarak antar kotak -->
         <div class="flex items-center justify-between mb-4">
             <h1 class="font-semibold text-lg">
@@ -59,7 +40,7 @@ ob_start();
         </div>
     </form>
     <div class="flex justify-end space-x-2 mt-16">
-        <a href="admin/bantuan" class="font-medium text-base text-grey px-6 py-2.5 bg-transparent border border-[#5B5B5B] rounded-2xl">
+        <a href="<?= $router->route('bantuan') ?>" class="font-medium text-base text-grey px-6 py-2.5 bg-transparent border border-[#5B5B5B] rounded-2xl">
             Kembali
         </a>
 
@@ -70,7 +51,7 @@ ob_start();
     </div>
             
         </div>
-    </div>
+
 
 
 

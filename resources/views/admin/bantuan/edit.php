@@ -12,139 +12,54 @@ ob_start();
                 Bantuan
             </h1>
         </div>
-
         <?php require_once __DIR__ . "/../layouts/profileBtn.php"; ?>
-
-    </div>
-    <div class="p-6 border-2 rounded-3xl mb-8 space-y-8"> <!-- Tambahkan wrapper dengan jarak antar kotak -->
-        <!-- Kotak Prodi 1 -->
-        <div class="p-6 border-2 rounded-3xl">
-            <div class="flex items-center justify-between mb-4">
-                <h1 class="font-semibold text-lg">
-                    DIV - Teknik Informatika
-                </h1>
-                <a href="<?= $router->route('bantuan-tambah') ?>" class="font-medium text-base text-white px-6 py-2.5 bg-[#FEBF10] hover:bg-[#F5A500] rounded-2xl focus:ring-4 focus:ring-[#FEBF10]">
-                    Tambah
-                </a>
-            </div>
-
-            <hr class="border sm:mx-auto lg:my-4" />
-            <div class="grid md:grid-cols-2 gap-6">
-                <div>
-                    <div class="flex items-center mb-4">
-                        <input type="checkbox" class="mr-2">
-                        <p class="font-medium text-base">
-                            Mas Anggi (Chat Only)
-                        </p>
-                    </div>
-                    <a href="#" class="font-medium text-base text-white px-6 py-2.5 bg-blue-500 hover:bg-blue-400 rounded-2xl focus:ring-4 focus:ring-blue-500">
-                        Hubungi
-                    </a>
-                </div>
-                <div>
-                    <div class="flex items-center mb-4">
-                        <input type="checkbox" class="mr-2">
-                        <p class="font-medium text-base">
-                            Bu Yanti (Chat Only)
-                        </p>
-                    </div>
-                    <a href="#" class="font-medium text-base text-white px-6 py-2.5 bg-blue-500 hover:bg-blue-400 rounded-2xl focus:ring-4 focus:ring-blue-500">
-                        Hubungi
-                    </a>
-                    <div class="flex justify-end space-x-2 mt-16">
-                        <a href="#" class="font-medium text-base text-white px-6 py-2.5 bg-[#DC3545] hover:bg-[#B02A37] rounded-2xl focus:ring-4 focus:ring-[#DC3545]">
-                            Hapus
-                        </a>
-                        <a href="#" class="font-medium text-base text-white px-6 py-2.5 bg-[#0D6EFD] hover:bg-[#0C5CCA] rounded-2xl focus:ring-4 focus:ring-[#0D6EFD]">
-                            Edit
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Kotak Prodi 2 -->
-        <div class="p-6 border-2 rounded-3xl">
-            <div class="flex items-center justify-between mb-4">
-                <h1 class="font-semibold text-lg">
-                    DIV - Sistem Informasi Bisnis
-                </h1>
-                <a href="#" class="font-medium text-base text-white px-6 py-2.5 bg-[#FEBF10] hover:bg-[#F5A500] rounded-2xl focus:ring-4 focus:ring-[#FEBF10]">
-                    Tambah
-                </a>
-            </div>
-
-            <hr class="border sm:mx-auto lg:my-4" />
-            <div class="grid md:grid-cols-2 gap-6">
-                <div>
-                    <div class="flex items-center mb-4">
-                        <input type="checkbox" class="mr-2">
-                        <p class="font-medium text-base">
-                            Bu Widya Novy (Chat Only)
-                        </p>
-                    </div>
-                    <a href="#" class="font-medium text-base text-white px-6 py-2.5 bg-blue-500 hover:bg-blue-400 rounded-2xl focus:ring-4 focus:ring-blue-500">
-                        Hubungi
-                    </a>
-                </div>
-                <div>
-                    <div class="flex items-center mb-4">
-                        <input type="checkbox" class="mr-2">
-                        <p class="font-medium text-base">
-                            Bu Ila (Chat Only)
-                        </p>
-                    </div>
-                    <a href="#" class="font-medium text-base text-white px-6 py-2.5 bg-blue-500 hover:bg-blue-400 rounded-2xl focus:ring-4 focus:ring-blue-500">
-                        Hubungi
-                    </a>
-                    <div class="flex justify-end space-x-2 mt-16">
-                        <a href="#" class="font-medium text-base text-white px-6 py-2.5 bg-[#DC3545] hover:bg-[#B02A37] rounded-2xl focus:ring-4 focus:ring-[#DC3545]">
-                            Hapus
-                        </a>
-                        <a href="#" class="font-medium text-base text-white px-6 py-2.5 bg-[#0D6EFD] hover:bg-[#0C5CCA] rounded-2xl focus:ring-4 focus:ring-[#0D6EFD]">
-                            Edit
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Kotak Prodi 1 -->
-        <div class="p-6 border-2 rounded-3xl">
-            <div class="flex items-center justify-between mb-4">
-                <h1 class="font-semibold text-lg">
-                    DII - Pengembangan Piranti Lunak Situs
-                </h1>
-                <a href="#" class="font-medium text-base text-white px-6 py-2.5 bg-[#FEBF10] hover:bg-[#F5A500] rounded-2xl focus:ring-4 focus:ring-[#FEBF10]">
-                    Tambah
-                </a>
-            </div>
-
-            <hr class="border sm:mx-auto lg:my-4" />
-            <div class="grid md:grid-cols-2 gap-6">
-                <div>
-                    <div class="flex items-center mb-4">
-                        <input type="checkbox" class="mr-2">
-                        <p class="font-medium text-base">
-                            Bu Titis (Chat Only)
-                        </p>
-                    </div>
-                    <a href="#" class="font-medium text-base text-white px-6 py-2.5 bg-blue-500 hover:bg-blue-400 rounded-2xl focus:ring-4 focus:ring-blue-500">
-                        Hubungi
-                    </a>
-                </div>
-                <div class="flex justify-end space-x-2 mt-16">
-                    <a href="#" class="font-medium text-base text-white px-6 py-2.5 bg-[#DC3545] hover:bg-[#B02A37] rounded-2xl focus:ring-4 focus:ring-[#DC3545]">
-                        Hapus
-                    </a>
-                    <a href="#" class="font-medium text-base text-white px-6 py-2.5 bg-[#0D6EFD] hover:bg-[#0C5CCA] rounded-2xl focus:ring-4 focus:ring-[#0D6EFD]">
-                        Edit
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
+    
+
+    <div class="p-6 border-2 rounded-3xl mb-8 space-y-8"> <!-- Tambahkan wrapper dengan jarak antar kotak -->
+    <?php if (!empty($_SESSION['flash'])): ?>
+            <?php foreach ($_SESSION['flash'] as $key => $message): ?>
+                <div class="alert alert-<?= $key; ?>">
+                    <?= $message; ?>
+                </div>
+            <?php endforeach; ?>
+            <?php unset($_SESSION['flash']); ?>
+        <?php endif; ?>
+        <div class="flex items-center justify-between mb-4">
+            <h1 class="font-semibold text-lg">
+                <?= htmlspecialchars($prodiName) ?>
+            </h1>
+        </div>
+        <hr class="border sm:mx-auto lg:my-4" />
+        <div>
+        <form action="">
+        <div class="space-y-4"> <!-- Tambahkan jarak vertikal antar elemen -->
+            <!-- Kolom pertama -->
+            <div class="flex flex-col">
+                <label for="nama" class="mb-1">Nama</label>
+                <input type="text" placeholder="Masukkan Nama" id="nama" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pl-8">
+            </div>
+
+            <!-- Kolom kedua -->
+            <div class="flex flex-col">
+                <label for="path" class="mb-1">Path</label>
+                <input type="link" placeholder="Masukkan Link" id="path" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pl-8">
+            </div>
+        </div>
+    </form>
+    <div class="flex justify-end space-x-2 mt-16">
+        <a href="<?= $router->route('bantuan') ?>" class="font-medium text-base text-grey px-6 py-2.5 bg-transparent border border-[#5B5B5B] rounded-2xl">
+            Kembali
+        </a>
+
+        <button type="submit" class="font-medium text-base text-white px-6 py-2.5 bg-[#FEBF10] hover:bg-[#F5A500] rounded-2xl focus:ring-4 focus:ring-[#FEBF10]">
+            Tambah
+        </button>
+
+    </div>
+            
+        </div>
+
 
 
 

@@ -23,8 +23,25 @@ class AdminBantuanController extends Controller
         $this->view('admin/bantuan/tambah');
     }
 
-    public function hapus(){
+    public function edit(){
         
+
+        $this->view('admin/bantuan/edit', compact('data'));
+    }
+
+    public function update($params){
+        $data_id = (int) $params['id'];
+
+        if (empty($_POST['name']) || empty($_POST['contact']) ) {
+            $this->redirect('admin/bantuan/' . $data_id . '/edit')->with('success', 'error');
+            return;
+        }
+
+        $name = htmlspecialchars($_POST ['name']);
+        $kontak = htmlspecialchars($_POST ['contact']);
+
+        $contactModel = new Contact();
+        $contactModel->beginTransaction();
     }
  }
     

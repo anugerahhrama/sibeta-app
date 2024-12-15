@@ -66,7 +66,7 @@ ob_start();
                 </tr>
                 <tr>
                     <td class="text-start font-medium text-base w-fit">
-                        Nomor Telepone
+                        Nomor Telepon
                     </td>
                     <td>
                         <input type="text" id="" name="no_tlp" value="" class="mb-4 bg-gray-50 border border-gray-300 text-gray-900 rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2" />

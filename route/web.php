@@ -13,7 +13,8 @@ use App\Controllers\PengajuanController;
 use App\Controllers\RegistrasiController;
 use App\Controllers\TanggunganController;
 use App\Controllers\AdminStatusController;
-use App\Models\Contact;
+use App\Controllers\AdminProdiController;
+
 
 $router->get('', [HomeController::class, 'index']);
 
@@ -56,12 +57,17 @@ $router->get('admin/pengguna/permintaan', [AdminPenggunaController::class, 'perm
 // Admin Pengajuan
 $router->resource('admin/pengajuan', AdminPengajuanController::class);
 
+//Admin Bantuan
 $router->get('admin/bantuan', [AdminBantuanController::class, 'index'])->name('bantuan');
 $router->get('admin/bantuan/tambah', [AdminBantuanController::class, 'tambah'])->name('bantuan-tambah');
+$router->get('admin/bantuan/edit', [AdminBantuanController::class, 'edit'])->name('bantuan-edit');
 $router->get('admin/status', [AdminStatusController::class, 'index'])->name('status');
 
-
-
+//Admin Prodi
+$router->resource('admin/prodi', AdminProdiController::class);
+// $router->get('admin/prodi', [AdminProdiController::class, 'index'])->name('prodi');
+// $router->get('admin/prodi/tambah', [AdminProdiController::class, 'tambah'])->name('prodi-tambah');
+// $router->post('admin/prodi/store', [AdminProdiController::class, 'store'])->name('prodi-store');
 $router->get('404', function () {
     include __DIR__ . '/../views/errors/404.php';
 });
