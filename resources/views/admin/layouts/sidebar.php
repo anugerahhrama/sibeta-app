@@ -13,7 +13,7 @@ $currentUrl = $_SERVER['REQUEST_URI'];
     <div class="h-full px-3 py-4 overflow-y-auto bg-[#0F1F43] dark:bg-gray-800">
         <div class="flex gap-5 w-fit rounded-full px-5 py-3 bg-white">
             <a href="" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="<?= BASE_URL ?>/public/assets/img/landingPage/header-3.svg" class="h-4" alt="Flowbite Logo" />
+                <img src="<?= BASE_URL ?>public/assets/img/landingPage/header-3.svg" class="h-4" alt="Flowbite Logo" />
             </a>
         </div>
         <hr class="border-white sm:mx-auto lg:my-4" />
@@ -49,6 +49,17 @@ $currentUrl = $_SERVER['REQUEST_URI'];
                     </span>
                 </a>
             </li>
+            <li>
+                <a href="<?= $router->route('admin/prodi.index') ?>" class="<?php echo str_contains($currentUrl, 'admin/prodi') ? 'text-[#0F1F43] bg-[#FEBF10]' : 'text-white hover:text-[#0F1F43] hover:bg-[#FEBF10]' ?> flex rounded-lg items-center p-2 group">
+                    <svg class="w-6 h-6 transition duration-75" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" d="M9 7V2.221a2 2 0 0 0-.5.365L4.586 6.5a2 2 0 0 0-.365.5H9Zm2 0V2h7a2 2 0 0 1 2 2v6.41A7.5 7.5 0 1 0 10.5 22H6a2 2 0 0 1-2-2V9h5a2 2 0 0 0 2-2Z" clip-rule="evenodd" />
+                        <path fill-rule="evenodd" d="M9 16a6 6 0 1 1 12 0 6 6 0 0 1-12 0Zm6-3a1 1 0 0 1 1 1v1h1a1 1 0 1 1 0 2h-1v1a1 1 0 1 1-2 0v-1h-1a1 1 0 1 1 0-2h1v-1a1 1 0 0 1 1-1Z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="ms-3">
+                        Prodi
+                    </span>
+                </a>
+            </li>
             <!-- <li>
                 <a href="status" class="<?php echo str_contains($currentUrl, 'admin/status') ? 'text-[#0F1F43] bg-[#FEBF10]' : 'text-white hover:text-[#0F1F43] hover:bg-[#FEBF10]' ?> flex rounded-lg items-center p-2 group">
                     <svg class="w-6 h-6 transition duration-75" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
@@ -60,7 +71,7 @@ $currentUrl = $_SERVER['REQUEST_URI'];
                 </a>
             </li> -->
             <li>
-                <a href="<?= $router->route('bantuan') ?>" class="<?php echo str_contains($currentUrl, 'admin/bantuan') ? 'text-[#0F1F43] bg-[#FEBF10]' : 'text-white hover:text-[#0F1F43] hover:bg-[#FEBF10]' ?> flex rounded-lg items-center p-2 group">
+                <a href="<?= $router->route('admin/bantuan.index') ?>" class="<?php echo str_contains($currentUrl, 'admin/bantuan') ? 'text-[#0F1F43] bg-[#FEBF10]' : 'text-white hover:text-[#0F1F43] hover:bg-[#FEBF10]' ?> flex rounded-lg items-center p-2 group">
                     <svg class="w-6 h-6 transition duration-75" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                         <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm9.008-3.018a1.502 1.502 0 0 1 2.522 1.159v.024a1.44 1.44 0 0 1-1.493 1.418 1 1 0 0 0-1.037.999V14a1 1 0 1 0 2 0v-.539a3.44 3.44 0 0 0 2.529-3.256 3.502 3.502 0 0 0-7-.255 1 1 0 0 0 2 .076c.014-.398.187-.774.48-1.044Zm.982 7.026a1 1 0 1 0 0 2H12a1 1 0 1 0 0-2h-.01Z" clip-rule="evenodd" />
                     </svg>
