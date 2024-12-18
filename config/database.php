@@ -2,9 +2,9 @@
 
 function getDbConnection()
 {
-    $dsn = "sqlsrv:Server=34.101.209.102,1433;Database=sibeta";
-    $username = "sqlserver";
-    $password = "admin123";
+    $dsn = "sqlsrv:Server=localhost,1433;Database=sibeta";
+    $username = "sa";
+    $password = "YourStrong!Passw0rd";
 
     try {
         $pdo = new PDO($dsn, $username, $password);

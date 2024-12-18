@@ -30,16 +30,18 @@ $router->get('tambah-admin', [LoginController::class, 'tambah_admin']);
 // User Route Beranda
 $router->resource('beranda', BerandaController::class);
 
-
-
+// User Data Diri
 $router->get('data-diri', [DataDiriController::class, 'index']);
 $router->post('data-diri-proses', [DataDiriController::class, 'store']);
 
+// User Pengajuan
 $router->get('pengajuan', [PengajuanController::class, 'index']);
 $router->post('pengajuan/upload', [PengajuanController::class, 'store']);
 
-
+// User Status Tanggungan
 $router->get('tanggungan', [TanggunganController::class, 'index']);
+
+
 $router->get('bantuan', [BantuanController::class, 'index']);
 
 // Admin Route
