@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Users;
+use PDOException;
 
 class LoginController extends Controller
 {
@@ -78,11 +79,22 @@ class LoginController extends Controller
 
         $hashedPassword = password_hash('admin123', PASSWORD_BCRYPT);
 
-        $userId = $userModel->create([
-            'name' => 'Admin Jurusan',
-            'email' => 'admin@test.com',
-            'password' => $hashedPassword,
-            'role' => 0
-        ]);
+        $userModel->beginTransaction();
+        try {
+            $userId = $userModel->create([
+                'name' => 'Admin Jurusan',
+                'email' => 'admin@test.com',
+                'password' => $hashedPassword,
+                'role' => 0
+            ]);
+
+            $userModel->commit();
+            echo "berhasil tambah admin";
+            exit;
+        } catch (PDOException $th) {
+            throw $th;
+            $userModel->rollback();
+            echo "gagal tambah admin";
+        }
     }
 }

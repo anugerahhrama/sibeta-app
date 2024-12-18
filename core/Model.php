@@ -134,4 +134,23 @@ abstract class Model
 
         return $this; // Kembalikan instance untuk chaining
     }
+
+    public function groupBy($columns)
+    {
+        if (!is_array($columns)) {
+            $columns = func_get_args(); // Mengambil argumen jika bukan array
+        }
+
+        $columnsList = implode(', ', $columns);
+
+        // Jika sudah ada query SELECT, tambahkan GROUP BY
+        if (strpos($this->query, 'SELECT') !== false) {
+            $this->query .= " GROUP BY $columnsList";
+        } else {
+            // Jika belum ada query SELECT, mulai dengan SELECT * dan tambahkan GROUP BY
+            $this->query = "SELECT * FROM " . static::$table . " GROUP BY $columnsList";
+        }
+
+        return $this; // Kembalikan instance untuk chaining
+    }
 }
