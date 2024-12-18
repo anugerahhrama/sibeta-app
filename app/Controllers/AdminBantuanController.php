@@ -52,7 +52,7 @@ class AdminBantuanController extends Controller
             // Periksa apakah nama program studi sudah ada
             $cariContact = $contactModels->where('name', $nama)->first();
             if ($cariContact) {
-                throw new Exception("Kontak sudah ada. Gunakan nama lain.");
+                throw new Exception("Kontak sudah ada. Coba gunakan nama lain.");
             }
     
             // Simpan data program studi
