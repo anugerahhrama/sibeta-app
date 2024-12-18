@@ -2,12 +2,13 @@
 
 function getDbConnection()
 {
-    $dsn = "sqlsrv:Server=34.101.209.102,1433;Database=sibeta";
-    $username = "sqlserver";
-    $password = "admin123";
+    $serverName = "MSI"; 
+    $databaseName = "sibetapp"; // Nama database
+    $dsn = "sqlsrv:Server=$serverName;Database=$databaseName";
 
     try {
-        $pdo = new PDO($dsn, $username, $password);
+        
+        $pdo = new PDO($dsn);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $pdo;
     } catch (PDOException $e) {

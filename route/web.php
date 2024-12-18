@@ -58,9 +58,10 @@ $router->get('admin/pengguna/permintaan', [AdminPenggunaController::class, 'perm
 $router->resource('admin/pengajuan', AdminPengajuanController::class);
 
 //Admin Bantuan
-$router->get('admin/bantuan', [AdminBantuanController::class, 'index'])->name('bantuan');
-$router->get('admin/bantuan/tambah', [AdminBantuanController::class, 'tambah'])->name('bantuan-tambah');
-$router->get('admin/bantuan/edit', [AdminBantuanController::class, 'edit'])->name('bantuan-edit');
+$router->resource('admin/bantuan', AdminBantuanController::class);
+// $router->get('admin/bantuan', [AdminBantuanController::class, 'index'])->name('bantuan');
+// $router->get('admin/bantuan/tambah', [AdminBantuanController::class, 'tambah'])->name('bantuan-tambah');
+// $router->get('admin/bantuan/edit', [AdminBantuanController::class, 'edit'])->name('bantuan-edit');
 $router->get('admin/status', [AdminStatusController::class, 'index'])->name('status');
 
 //Admin Prodi
