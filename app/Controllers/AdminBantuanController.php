@@ -22,8 +22,8 @@ class AdminBantuanController extends Controller
 
     public function create()
     {
-        $prodiModel = new Prodi();
-        $data = $prodiModel
+        $contactModel = new Prodi();
+        $data = $contactModel
             ->select('Prodi.id AS prodi_id, Prodi.name AS prodi_name')
             ->get();
         $this->view('admin/bantuan/tambah', compact('data'));
@@ -58,7 +58,7 @@ class AdminBantuanController extends Controller
             // Simpan data program studi
              $contactModels->create([
                 'name' => $nama,
-                'path' => $nomor,
+                'contact' => $nomor,
                 'prodi_id' => $prodiId 
             ]);
             $contactModels->commit();
@@ -75,6 +75,101 @@ class AdminBantuanController extends Controller
             return;
         }
     }
+
+    public function show($params) {
+        echo "Contact for ID: {$params['id']}";
+    }
+    
+
+
+    public function destroy($params)
+    {
+        $contact_id = (int) $params['id'];
+
+       $contactModels = new Contact();
+        
+        $cariContact =$contactModels->where('id', $contact_id)->first();
+        
+        try {
+           $contactModels->beginTransaction();
+
+            // Hapus detail pengguna dan pengguna
+            if ($cariContact) {
+               $contactModels->delete($cariContact['id']);
+            }
+
+           $contactModels->commit();
+            $this->redirect('admin/bantuan');
+        } catch (Exception $e) {
+            // Rollback transaksi jika terjadi kesalahan
+           $contactModels->rollback();
+            // Redirect dengan pesan kesalahan
+            $_SESSION['error_message'] = $e->getMessage();
+            $this->redirect('admin/bantuan')->with('error', $e->getMessage());
+        }
+    }
+    public function edit($params)
+    {
+        $contactModel = new Contact();
+        $data_id = (int) $params['id'];
+        $getData = $contactModel
+            ->select('Contact.id, Contact.name, Contact.contact')
+            ->get();
+
+        $data = array();
+        foreach ($getData as $key => $row) {
+            if ($row['id'] == $data_id) {
+                $data = [
+                    'id' => $row['id'],
+                    'name' => $row['name'],
+                    'contact' => $row['contact']
+                ];
+            }
+        }
+
+        $this->view('admin/bantuan/edit', compact('data'));
+    }
+
+    public function update($params)
+    {
+        $contact_id = (int) $params['id'];
+
+        // Validasi data
+        if (empty($_POST['nama'])) {
+            $this->redirect('admin/bantuan/' . $contact_id . '/edit')->with('success', 'error');
+            return;
+        }
+
+        $nama = htmlspecialchars($_POST['nama']);
+        $nomor = htmlspecialchars($_POST['nomor']);
+
+        $contactModel = new Contact();
+       
+
+        // Memulai transaksi
+        $contactModel->beginTransaction();
+
+        try {
+            // Update data pengguna
+            $dataContact = [
+                'name' => $nama,
+                'contact' => $nomor
+            ];
+            $updateUser = $contactModel->update($contact_id, $dataContact);
+
+            // Periksa hasil update
+            $contactModel->commit();
+            // Jika kedua update berhasil, commit transaksi
+            $this->redirect('admin/bantuan');
+        } catch (Exception $e) {
+            // Rollback transaksi jika terjadi kesalahan
+            $contactModel->rollback();
+            // Redirect dengan pesan kesalahan
+            $_SESSION['error_message'] = $e->getMessage();
+            $this->redirect('admin/pengguna/' . $contact_id . '/edit')->with('success', $e->getMessage());
+        }
+    }
+
     
 
  }
