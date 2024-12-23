@@ -37,13 +37,13 @@ ob_start();
                         </p>
                     </div>
                     <div class="flex gap-4">
-                        <?php if ($row['path'] == null) { ?>
+                        <?php if (empty($row['submission'])) { ?>
                             <input id="file_input" type="file" name="file_submission" accept="application/<?= $row['format'] ?? '' ?>" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-full cursor-pointer bg-gray-50 focus:outline-none" required>
                             <button type="submit" class="text-white bg-[#0D6EFD] hover:bg-[#0D6EFD]/80 focus:ring-4 focus:ring-[#0D6EFD] font-medium rounded-full text-sm px-6 py-2.5 focus:outline-none">
                                 Simpan
                             </button>
                         <?php } else { ?>
-                            <a href="<?= BASE_URL ?>public/assets/submission/<?= $row['path'] ?>" class="text-white bg-green-500 hover:bg-green-500/80 focus:ring-4 focus:ring-green-500 font-medium rounded-full text-sm px-6 py-2.5 focus:outline-none" target="_blank">
+                            <a href="<?= BASE_URL ?>public/assets/submission/<?= $row['submission']['path'] ?>" class="text-white bg-green-500 hover:bg-green-500/80 focus:ring-4 focus:ring-green-500 font-medium rounded-full text-sm px-6 py-2.5 focus:outline-none" target="_blank">
                                 Lihat File
                             </a>
                             <button type="submit" class="text-white bg-[#0D6EFD] hover:bg-[#0D6EFD]/80 focus:ring-4 focus:ring-[#0D6EFD] font-medium rounded-full text-sm px-10 py-2.5 focus:outline-none">

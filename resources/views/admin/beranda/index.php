@@ -88,10 +88,10 @@ ob_start();
                                                 <?= htmlspecialchars($row['prodi']) ?>
                                             </td>
                                             <td class="px-6 py-3">
-                                                <?= htmlspecialchars($value['submission_data']['tgl_pengajuan']) ?>
+                                                <?= date('d-m-Y', strtotime(htmlspecialchars($value['submission_data']['tgl_pengajuan']))) ?>
                                             </td>
                                             <td class="px-6 py-3">
-                                                <a href="<?= $router->route('status') ?>" class="py-2 px-5 bg-blue-500 text-white rounded-full">
+                                                <a href="<?= $router->route('admin/beranda.show', ['id' => $value['id']]) ?>" class="py-2 px-5 bg-blue-500 text-white rounded-full">
                                                     Verifikasi
                                                 </a>
                                             </td>

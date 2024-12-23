@@ -19,7 +19,7 @@ $currentUrl = $_SERVER['REQUEST_URI'];
         <hr class="border-white sm:mx-auto lg:my-4" />
         <ul class="space-y-2 font-medium">
             <li>
-                <a href="<?= $router->route('admin-beranda') ?>" class="<?php echo str_contains($currentUrl, 'admin/beranda') ? 'text-[#0F1F43] bg-[#FEBF10]' : 'text-white hover:text-[#0F1F43] hover:bg-[#FEBF10]'; ?> flex rounded-lg items-center p-2 group">
+                <a href="<?= $router->route('admin/beranda.index') ?>" class="<?php echo str_contains($currentUrl, 'admin/beranda') ? 'text-[#0F1F43] bg-[#FEBF10]' : 'text-white hover:text-[#0F1F43] hover:bg-[#FEBF10]'; ?> flex rounded-lg items-center p-2 group">
                     <svg class="w-6 h-6 transition duration-75" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                         <path fill-rule="evenodd" d="M4.857 3A1.857 1.857 0 0 0 3 4.857v4.286C3 10.169 3.831 11 4.857 11h4.286A1.857 1.857 0 0 0 11 9.143V4.857A1.857 1.857 0 0 0 9.143 3H4.857Zm10 0A1.857 1.857 0 0 0 13 4.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 21 9.143V4.857A1.857 1.857 0 0 0 19.143 3h-4.286Zm-10 10A1.857 1.857 0 0 0 3 14.857v4.286C3 20.169 3.831 21 4.857 21h4.286A1.857 1.857 0 0 0 11 19.143v-4.286A1.857 1.857 0 0 0 9.143 13H4.857Zm10 0A1.857 1.857 0 0 0 13 14.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 21 19.143v-4.286A1.857 1.857 0 0 0 19.143 13h-4.286Z" clip-rule="evenodd" />
                     </svg>
@@ -51,9 +51,8 @@ $currentUrl = $_SERVER['REQUEST_URI'];
             </li>
             <li>
                 <a href="<?= $router->route('admin/prodi.index') ?>" class="<?php echo str_contains($currentUrl, 'admin/prodi') ? 'text-[#0F1F43] bg-[#FEBF10]' : 'text-white hover:text-[#0F1F43] hover:bg-[#FEBF10]' ?> flex rounded-lg items-center p-2 group">
-                    <svg class="w-6 h-6 transition duration-75" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                        <path fill-rule="evenodd" d="M9 7V2.221a2 2 0 0 0-.5.365L4.586 6.5a2 2 0 0 0-.365.5H9Zm2 0V2h7a2 2 0 0 1 2 2v6.41A7.5 7.5 0 1 0 10.5 22H6a2 2 0 0 1-2-2V9h5a2 2 0 0 0 2-2Z" clip-rule="evenodd" />
-                        <path fill-rule="evenodd" d="M9 16a6 6 0 1 1 12 0 6 6 0 0 1-12 0Zm6-3a1 1 0 0 1 1 1v1h1a1 1 0 1 1 0 2h-1v1a1 1 0 1 1-2 0v-1h-1a1 1 0 1 1 0-2h1v-1a1 1 0 0 1 1-1Z" clip-rule="evenodd" />
+                    <svg class="w-6 h-6 transition duration-75" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5v14m8-7h-2m0 0h-2m2 0v2m0-2v-2M3 11h6m-6 4h6m11 4H4c-.55228 0-1-.4477-1-1V6c0-.55228.44772-1 1-1h16c.5523 0 1 .44772 1 1v12c0 .5523-.4477 1-1 1Z" />
                     </svg>
                     <span class="ms-3">
                         Prodi

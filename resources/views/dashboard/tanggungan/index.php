@@ -54,10 +54,36 @@ ob_start();
                                 </div>
                             </td>
                             <td class="px-6 py-2 border text-center">
-                                <?= htmlspecialchars($row['tgl_pengajuan'] ?? '-') ?>
+                                <?= $row['tgl_pengajuan'] !== null ? date('d-m-Y', strtotime(htmlspecialchars($row['tgl_pengajuan']))) : '-' ?>
+                                <!-- <?= htmlspecialchars($row['tgl_pengajuan'] ?? '-') ?> -->
                             </td>
                             <td class="px-6 py-2 border text-center">
-                                <?= htmlspecialchars($row['tgl_verifikasi'] ?? '-') ?>
+                                <?php
+                                if (empty($row['tgl_verifikasi'])) {
+                                    // Jika tgl_verifikasi kosong
+                                    if ($row['status'] == '0') {
+                                        echo '-'; // Tampilkan '-' jika status = 0
+                                    } else {
+                                        echo '-'; // Tampilkan '-' jika status bukan 0
+                                    }
+                                } else {
+                                    // Jika tgl_verifikasi tidak kosong
+                                    if ($row['status'] != '0') {
+                                        // Pastikan tgl_verifikasi adalah string yang valid sebelum mengubahnya
+                                        $tglVerifikasi = htmlspecialchars($row['tgl_verifikasi']);
+                                        $tanggal = date('d-m-Y', strtotime($tglVerifikasi));
+
+                                        // Periksa apakah tanggal valid
+                                        if ($tanggal !== '01-01-1970') {
+                                            echo $tanggal; // Tampilkan tanggal jika valid
+                                        } else {
+                                            echo '-'; // Tampilkan '-' jika tanggal tidak valid
+                                        }
+                                    } else {
+                                        echo '-'; // Tampilkan '-' jika status = 0
+                                    }
+                                }
+                                ?>
                             </td>
                             <td class="px-6 py-2 border">
                                 <div class="flex justify-center">

@@ -19,13 +19,31 @@ class PengajuanController extends Controller
     public function index()
     {
         $formsModel = new Forms();
-        // $datas = $formsModel->all();
+        $submissionModel = new Submission();
 
-        $datas = $formsModel->join('submission', 'forms.id', '=', 'submission.form_id', 'LEFT')
-            ->select('forms.id AS form_id', 'label', 'deskripsi', 'file_size', 'format', 'required', 'submission.path')
-            ->get();
+        $getSubmission = $submissionModel->where('user_id', $_SESSION['user']['id'])->get();
+        $getForms = $formsModel->all();
 
-        // print_r($datas[1]);
+        $datas = array();
+        foreach ($getForms as $row) {
+            $submission = array_filter($getSubmission, function ($item) use ($row) {
+                return $item['form_id'] == $row['id'];
+            });
+
+            $firstSubmission = !empty($submission) ? reset($submission) : null;
+
+            $datas[] = [
+                'form_id' => $row['id'],
+                'label' => $row['label'],
+                'required' => $row['required'],
+                'deskripsi' => $row['deskripsi'],
+                'file_size' => $row['file_size'],
+                'format' => $row['format'],
+                'path' => $row['path'],
+                'submission' => $firstSubmission,
+            ];
+        }
+
         $this->view('dashboard/pengajuan/index', compact('datas'));
     }
 
