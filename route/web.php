@@ -46,7 +46,8 @@ $router->get('tanggungan', [TanggunganController::class, 'index']);
 $router->get('bantuan', [BantuanController::class, 'index']);
 
 // Admin Route
-$router->get('admin/beranda', [AdminBerandaController::class, 'index'])->name('admin-beranda');
+$router->resource('admin/beranda', AdminBerandaController::class);
+$router->post('admin/beranda/{id}/update', [AdminBerandaController::class, 'update_detail']);
 
 // AdminPengguna
 $router->resource('admin/pengguna', AdminPenggunaController::class);
