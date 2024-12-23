@@ -37,27 +37,16 @@ ob_start();
         <div class="grid md:grid-cols-2 gap-2">
             <?php foreach ($items as $row): ?>
                 <div>
-                    <form action="" method="POST">
                     <div class="flex items-center mb-4">
-                        <input type="checkbox" class="mr-2" <?= htmlspecialchars($row['contact_id'] ?? '') ?>>
                         <p class="font-medium text-base">
-                            <?= htmlspecialchars($row['contact_name']) ?>
+                        <?= htmlspecialchars($row['contact_name']) ?></br>(<?= htmlspecialchars($row['contact_method']) ?>)
                         </p>
                     </div>
-                    <a href="#" class="font-medium text-base text-white px-6 py-2.5 bg-blue-500 hover:bg-blue-400 rounded-2xl focus:ring-4 focus:ring-blue-500">
-                        Hubungi
+                    <a href="<?= $router->route('admin/bantuan.edit', ['id' => $row['contact_id']]) ?>" id="editButton" class="font-medium text-base text-white px-6 py-2.5 bg-[#0D6EFD] hover:bg-[#0C5CCA] rounded-2xl focus:ring-4 focus:ring-[#0D6EFD]">
+                        Edit
                     </a>
-                    </form>
                 </div>
             <?php endforeach; ?>
-        </div>
-        <div class="flex justify-end mt-16 gap-2">
-            <a href="#" id="deleteButton" class="font-medium text-base text-white px-6 py-2.5 bg-[#DC3545] hover:bg-[#B02A37] rounded-2xl focus:ring-4 focus:ring-[#DC3545]">
-                Hapus
-            </a>
-            <a href="<?= $router->route('admin/bantuan.edit') ?>" id="editButton" class="font-medium text-base text-white px-6 py-2.5 bg-[#0D6EFD] hover:bg-[#0C5CCA] rounded-2xl focus:ring-4 focus:ring-[#0D6EFD]">
-                Edit
-            </a>
         </div>
     </div>
 <?php } ?>

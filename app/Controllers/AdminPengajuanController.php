@@ -115,10 +115,10 @@ class AdminPengajuanController extends Controller
             $formsModel->commit();
             $this->redirect('admin/pengajuan');
         } catch (PDOException $e) {
-            $formsModel->rollback();
-            $_SESSION['error_message'] = $e->getMessage();
-            var_dump($e->getMessage());
-            // $this->redirect('admin/pengajuan/create');
+            // $formsModel->rollback();
+            // $_SESSION['error_message'] = $e->getMessage();
+            // var_dump($e->getMessage());
+            $this->redirect('admin/pengajuan/create');
         }
     }
 

@@ -12,34 +12,47 @@ ob_start();
                 Bantuan
             </h1>
         </div>
-
         <?php require_once __DIR__ . "/../layouts/profileBtn.php"; ?>
     </div>
-
-    <div class="p-6 border-2 rounded-3xl mb-8">
-        <h1 class="font-semibold text-lg">
-            DIV - Teknik Informatika
-        </h1>
-        <hr class="border sm:mx-auto lg:my-4" />
-        <div class="grid md:grid-cols-2 gap-6">
-            <div>
-                <p class="font-medium text-base mb-4">
-                    Mas Anggi (Chat Only)
-                </p>
-                <a href="#" class="font-medium text-base text-white px-6 py-2.5 bg-blue-500 hover:bg-blue-400 rounded-2xl focus:ring-4 focus:ring-blue-500">
-                    Hubungi
-                </a>
+    <?php if (!empty($contacts)): ?>
+        <div class="p-6 border-2 rounded-3xl mb-4 mt-4">
+            <div class="flex items-center justify-between mb-4">
+                <h1 class="font-semibold text-lg">
+                    <?= htmlspecialchars($userProdi) ?>
+                </h1>
             </div>
-            <div>
-                <p class="font-medium text-base mb-4">
-                    Mas Anggi (Chat Only)
-                </p>
-                <a href="#" class="font-medium text-base text-white px-6 py-2.5 bg-blue-500 hover:bg-blue-400 rounded-2xl focus:ring-4 focus:ring-blue-500">
-                    Hubungi
-                </a>
+            <hr class="border sm:mx-auto lg:my-4" />
+            <div class="grid md:grid-cols-2 gap-2">
+                <?php foreach ($contacts as $contact): ?>
+                    <?php
+                    // Proses nomor telepon: Ganti 0 di awal dengan 62
+                    $contactNumber = $contact['contact_method'];
+                    if (substr($contactNumber, 0, 1) === '0') {
+                        $contactNumber = '62' . substr($contactNumber, 1);
+                    }
+                    ?>
+                    <div>
+                        <div class="flex items-center mb-4">
+                            <p class="font-medium text-base">
+                                <?= htmlspecialchars($contact['contact_name']) ?></br>(<?= htmlspecialchars($contact['contact_method']) ?>)
+                            </p>
+                        </div>
+                        <a href="https://wa.me/<?= htmlspecialchars($contactNumber) ?>" target="_blank" id="editButton" class="font-medium text-base text-white px-6 py-2.5 bg-[#0D6EFD] hover:bg-[#0C5CCA] rounded-2xl focus:ring-4 focus:ring-[#0D6EFD]">
+                            Hubungi
+                        </a>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
-    </div>
+    <?php else: ?>
+        <div class="p-6 border-2 rounded-3xl mb-4 mt-4">
+            <h1 class="font-semibold text-lg">
+                <?= htmlspecialchars($userProdi) ?>
+            </h1>
+            <hr class="border sm:mx-auto lg:my-4" />
+            <p class="text-gray-500">Tidak ada bantuan yang tersedia untuk prodi ini.</p>
+        </div>
+    <?php endif; ?>
 </div>
 
 <?php
