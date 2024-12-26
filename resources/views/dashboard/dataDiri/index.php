@@ -23,12 +23,23 @@ ob_start();
         <hr class="border sm:mx-auto lg:my-4" />
         <div class="flex flex-col md:flex-row gap-x-24">
             <div class="flex flex-col justify-center items-center gap-4">
-                <img src="public/assets/img/user/profile.svg" class="h-auto max-w-full" alt="">
-                <a href="#" id="changePhotoLink" class="w-full text-white bg-[#0F1F43] hover:bg-[#0F1F43]/80 focus:ring-4 focus:ring-[#0F1F43] font-medium rounded-full text-sm px-5 py-2.5 mb-2 focus:outline-none text-center block">
+                <img src="<?= BASE_URL ?>public/assets/profile/<?= empty($data['path']) ? 'blank-user.png' : $data['path'] ?>" class="h-32 max-w-32 rounded-full object-cover object-center" alt="">
+                <button id="flow-1" type="button" class="w-full text-white bg-[#0F1F43] hover:bg-[#0F1F43]/80 focus:ring-4 focus:ring-[#0F1F43] font-medium rounded-full text-sm px-5 py-2.5 mb-2 focus:outline-none text-center block">
                     Ubah Foto
-                </a>
-                <input type="file" id="photoInput" accept="image/*" class="hidden">
-
+                </button>
+                <form id="flow-2" class="hidden" action="<?= BASE_URL ?>data-diri-profile" method="post" enctype="multipart/form-data">
+                    <input type="file" id="file_input" name="profile" accept="image/*" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-full cursor-pointer bg-gray-50 mb-2" required>
+                    <div class="flex gap-2">
+                        <button type="submit" class="focus:outline-none w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-3 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-900">
+                            Simpan
+                        </button>
+                        <button type="button" id="btnCencel" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-3 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
+                            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6" />
+                            </svg>
+                        </button>
+                    </div>
+                </form>
             </div>
             <div class="xl:w-1/3 grid grid-cols-2 gap-8 content-center">
                 <div>
@@ -120,6 +131,21 @@ ob_start();
     </div>
 
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#flow-1').click(function() {
+            $('#flow-1').addClass('hidden');
+            $('#flow-2').removeClass('hidden');
+        });
+
+        $('#btnCencel').click(function() {
+            $('#flow-2').addClass('hidden');
+            $('#flow-1').removeClass('hidden');
+        });
+    });
+</script>
 
 <?php
 $content = ob_get_clean();

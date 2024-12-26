@@ -34,10 +34,12 @@ $router->resource('beranda', BerandaController::class);
 // User Data Diri
 $router->get('data-diri', [DataDiriController::class, 'index']);
 $router->post('data-diri-proses', [DataDiriController::class, 'store']);
+$router->post('data-diri-profile', [DataDiriController::class, 'edit_profile']);
 
 // User Pengajuan
 $router->get('pengajuan', [PengajuanController::class, 'index']);
 $router->post('pengajuan/upload', [PengajuanController::class, 'store']);
+$router->post('pengajuan/update/{id}', [PengajuanController::class, 'update']);
 
 // User Status Tanggungan
 $router->get('tanggungan', [TanggunganController::class, 'index']);
@@ -48,6 +50,7 @@ $router->get('bantuan', [BantuanController::class, 'index']);
 // Admin Route
 $router->resource('admin/beranda', AdminBerandaController::class);
 $router->post('admin/beranda/{id}/update', [AdminBerandaController::class, 'update_detail']);
+$router->post('admin/beranda/status', [AdminBerandaController::class, 'update_status']);
 
 // AdminPengguna
 $router->resource('admin/pengguna', AdminPenggunaController::class);

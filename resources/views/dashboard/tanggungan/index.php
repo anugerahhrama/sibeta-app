@@ -112,10 +112,10 @@ ob_start();
         <h1 class="font-semibold text-lg mb-4">
             Catatan
         </h1>
-        <textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-white rounded-2xl border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Catatan ditampilkan disini..." readonly><?php echo $mergedNotes ?></textarea>
+        <textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-white rounded-2xl border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Catatan ditampilkan disini..." readonly><?= $getStatus['notes'] ?? '' ?></textarea>
     </div>
 
-    <?php if ($lengkap == true) { ?>
+    <?php if (!empty($getStatus['bebas_tanggungan']) && $getStatus['bebas_tanggungan'] == 1) { ?>
         <div class="p-6 border-2 rounded-3xl mb-8">
             <h1 class="font-semibold text-lg">
                 Bebas Tanggungan
