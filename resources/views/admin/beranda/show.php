@@ -25,10 +25,10 @@ ob_start();
         <hr class="border sm:mx-auto lg:my-4" />
         <div class="flex flex-col md:flex-row gap-x-24">
             <div class="flex flex-col justify-center items-center gap-4">
-                <img src="<?= BASE_URL ?>public/assets/img/user/profile.svg" class="h-auto max-w-full" alt="">
-                <button type="button" class="w-full text-white bg-[#0F1F43] hover:bg-[#0F1F43]/80 focus:ring-4 focus:ring-[#0F1F43] font-medium rounded-full text-sm px-5 py-2.5 mb-2 focus:outline-none">
+                <img src="<?= BASE_URL ?>public/assets/profile/<?= empty($data['path']) ? 'blank-user.png' : $data['path'] ?>" class="h-32 max-w-32 rounded-full object-cover object-center" alt="">
+                <!-- <button type="button" class="w-full text-white bg-[#0F1F43] hover:bg-[#0F1F43]/80 focus:ring-4 focus:ring-[#0F1F43] font-medium rounded-full text-sm px-5 py-2.5 mb-2 focus:outline-none">
                     Ubah Foto
-                </button>
+                </button> -->
             </div>
             <div class="xl:w-1/2 grid grid-cols-2 gap-8 content-center">
                 <div>
@@ -129,7 +129,7 @@ ob_start();
             <h1 class="font-semibold text-lg mb-4">
                 Catatan
             </h1>
-            <textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-white rounded-2xl border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Catatan ditampilkan disini..."></textarea>
+            <textarea id="message" rows="4" name="notes" class="block p-2.5 w-full text-sm text-gray-900 bg-white rounded-2xl border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Catatan ditampilkan disini..."><?= htmlspecialchars($data['notes']) ?></textarea>
             <div class="flex justify-end space-x-2 mt-16">
                 <a href="<?= $router->route('admin/beranda.index') ?>" class="font-medium text-base text-grey px-6 py-2.5 bg-transparent border border-[#5B5B5B] rounded-2xl">
                     kembali
@@ -158,7 +158,7 @@ ob_start();
                     </a>
                 </div>
                 <label class="inline-flex items-center cursor-pointer">
-                    <input type="checkbox" value="" class="sr-only peer">
+                    <input type="checkbox" value="" class="sr-only peer" data-id="<?= htmlspecialchars($data['id']) ?>" <?= htmlspecialchars($data['status'] == 1 ? 'checked' : '') ?>>
                     <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:w-5 after:h-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                 </label>
             </div>
@@ -166,35 +166,71 @@ ob_start();
     </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
 <script>
-    function updateBackgroundColor(id) {
-        const selectElement = document.getElementById('statusSelect' + id);
-        const selectedValue = selectElement.value;
+    $(document).ready(function() {
+        function updateBackgroundColor(id) {
+            const $selectElement = $('#statusSelect' + id);
+            const selectedValue = $selectElement.val();
 
-        // Reset styles
-        selectElement.style.backgroundColor = 'white';
-        selectElement.style.color = 'black';
-        selectElement.style.borderColor = 'transparent';
+            // Reset styles
+            $selectElement.css({
+                'background-color': 'white',
+                'color': 'black',
+                'border-color': 'transparent'
+            });
 
-        // Set background color based on selected value
-        if (selectedValue === '1') {
-            selectElement.style.backgroundColor = '#198754'; // Hijau
-            selectElement.style.color = 'white';
-        } else if (selectedValue === '2') {
-            selectElement.style.backgroundColor = '#DC3545'; // Merah
-            selectElement.style.color = 'white';
-        } else if (selectedValue === '0') {
-            selectElement.style.backgroundColor = 'white'; // Putih
-            selectElement.style.color = '#6c757d'; // Abu-abu
-            selectElement.style.borderColor = '#6c757d'; // Border abu-abu
+            // Set background color based on selected value
+            if (selectedValue === '1') {
+                $selectElement.css({
+                    'background-color': '#198754', // Hijau
+                    'color': 'white'
+                });
+            } else if (selectedValue === '2') {
+                $selectElement.css({
+                    'background-color': '#DC3545', // Merah
+                    'color': 'white'
+                });
+            } else if (selectedValue === '0') {
+                $selectElement.css({
+                    'background-color': 'white', // Putih
+                    'color': '#6c757d', // Abu-abu
+                    'border-color': '#6c757d' // Border abu-abu
+                });
+            }
         }
-    }
 
-    // Call updateBackgroundColor for each select element on page load
-    document.addEventListener('DOMContentLoaded', () => {
-        document.querySelectorAll('[id^="statusSelect"]').forEach(selectElement => {
-            const id = selectElement.id.replace('statusSelect', '');
+        // Call updateBackgroundColor for each select element on page load
+        $('[id^="statusSelect"]').each(function() {
+            const id = $(this).attr('id').replace('statusSelect', '');
             updateBackgroundColor(id);
+        });
+
+        // Attach change event handler to update background color on selection change
+        $('[id^="statusSelect"]').change(function() {
+            const id = $(this).attr('id').replace('statusSelect', '');
+            updateBackgroundColor(id);
+        });
+
+        $('input[type="checkbox"]').change(function() {
+            const isChecked = $(this).is(':checked');
+            const id = $(this).data('id'); // Ambil ID dari data-id
+
+            // Kirim data ke server
+            $.ajax({
+                url: '<?= BASE_URL ?>admin/beranda/status', // Ganti dengan URL endpoint Anda
+                type: 'POST',
+                data: {
+                    id: id,
+                    checked: isChecked
+                },
+                success: function(response) {
+                    console.log('Status berhasil diperbarui:', response);
+                },
+                error: function(xhr, status, error) {
+                    console.error('Terjadi kesalahan:', error);
+                }
+            });
         });
     });
 </script>

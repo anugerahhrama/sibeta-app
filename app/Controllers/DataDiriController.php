@@ -22,7 +22,7 @@ class DataDiriController extends Controller
         $getData = $userModel
             ->join('Users', 'Users.id', '=', 'UserDetail.user_id', 'LEFT')
             ->join('Prodi', 'Prodi.id', '=', 'UserDetail.prodi_id', 'LEFT')
-            ->select('Users.id', 'Users.name', 'UserDetail.nim', 'Prodi.name AS prodi', 'tempat_lahir', 'tgl_lahir', 'jenis_kelamin', 'no_tlp')
+            ->select('Users.id', 'Users.name', 'UserDetail.nim', 'Prodi.name AS prodi', 'tempat_lahir', 'tgl_lahir', 'jenis_kelamin', 'no_tlp', 'UserDetail.path')
             ->get();
         $data = array();
         foreach ($getData as $key => $row) {
@@ -34,7 +34,8 @@ class DataDiriController extends Controller
                     'tempat_lahir' => $row['tempat_lahir'],
                     'tgl_lahir' => $row['tgl_lahir'],
                     'jenis_kelamin' => $row['jenis_kelamin'],
-                    'no_tlp' => $row['no_tlp']
+                    'no_tlp' => $row['no_tlp'],
+                    'path' => $row['path'],
                 ];
             }
         }
@@ -103,11 +104,64 @@ class DataDiriController extends Controller
                 // Rollback transaksi jika terjadi kesalahan
                 $userDetailModel->rollback();
                 $_SESSION['error_message'] = $e->getMessage();
-                $this->redirect("/data-diri");
+                $this->redirect("data-diri");
             }
         } else {
             // Jika bukan POST, redirect ke halaman form
             $this->redirect("data-diri");
         }
+    }
+
+    public function edit_profile()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (isset($_FILES['profile']) && $_FILES['profile']['error'] === 0) {
+                try {
+                    $userDetailModel = new UserDetail();
+                    $userDetailModel->beginTransaction();
+
+                    $fileTmpPath = $_FILES['profile']['tmp_name'];
+                    $fileName = $_FILES['profile']['name'];
+                    $fileSize = $_FILES['profile']['size'];
+
+                    // Temukan detail pengguna
+                    $findUser = $userDetailModel->where('user_id', $_SESSION['user']['id'])->first();
+                    if (!$findUser) {
+                        throw new PDOException("Data pengguna tidak ditemukan.");
+                    }
+
+                    $uploadDir = __DIR__ . '/../../public/assets/profile/';
+
+                    if (!is_dir($uploadDir)) {
+                        mkdir($uploadDir, 0777, true); // Buat folder dengan izin full akses
+                    }
+
+                    $oldFilePath = $uploadDir . $findUser['path'];
+                    if (file_exists($oldFilePath)) {
+                        unlink($oldFilePath); // Hapus file lama
+                    }
+
+                    $newFileName = time() . '_' . basename($findUser['nim']); // Rename file agar unik
+                    $uploadPath = $uploadDir . $newFileName;
+
+                    $userDetailModel->update($findUser['id'], [
+                        'path' => $newFileName,
+                    ]);
+
+                    if (!move_uploaded_file($fileTmpPath, $uploadPath)) {
+                        throw new PDOException("Terjadi kesalahan saat memindahkan file.");
+                    }
+
+                    $userDetailModel->commit();
+                    $this->redirect('data-diri');
+                } catch (PDOException $th) {
+                    //throw $th;
+                    $userDetailModel->rollback();
+                    $this->redirect('data-diri');
+                }
+            } else {
+                echo "Tidak terdapat inputan file atau terjadi kesalahan saat mengunggah file.";
+            };
+        };
     }
 }

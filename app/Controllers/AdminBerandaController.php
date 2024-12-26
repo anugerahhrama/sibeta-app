@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Prodi;
+use App\Models\Status;
 use App\Models\Submission;
 use App\Models\UserDetail;
 use App\Models\Users;
@@ -78,6 +79,7 @@ class AdminBerandaController extends Controller
     {
         $submissionModel = new Submission();
         $userModel = new Users();
+        $statusModel = new Status();
 
         $idUser = (int) $params['id'];
 
@@ -85,8 +87,10 @@ class AdminBerandaController extends Controller
         $getUser = $userModel
             ->join('UserDetail', 'UserDetail.user_id', '=', 'Users.id', 'left')
             ->join('Prodi', 'UserDetail.prodi_id', '=', 'Prodi.id', 'left')
-            ->select('users.id as user_id', 'UserDetail.prodi_id as prodi_id', 'Prodi.name as prodi', 'users.role as role', 'users.name as username', 'UserDetail.nim')
+            ->select('users.id as user_id', 'UserDetail.prodi_id as prodi_id', 'Prodi.name as prodi', 'users.role as role', 'users.name as username', 'UserDetail.nim', 'UserDetail.path')
             ->get();
+
+        $getStatus = $statusModel->where('user_id', $idUser)->first();
 
         $data = null;
         foreach ($getUser as $row) {
@@ -99,12 +103,18 @@ class AdminBerandaController extends Controller
                 // Jika ada submission, ambil yang pertama; jika tidak, null
                 $firstSubmission = !empty($submission) ? reset($submission) : null;
 
+                $notes = !empty($getStatus['notes']) ? $getStatus['notes'] : '';
+                $status =  !empty($getStatus['bebas_tanggungan']) ? $getStatus['bebas_tanggungan'] : '';
+
                 $data = [
                     'id' => $row['user_id'],
                     'name' => $row['username'],
                     'prodi' => $row['prodi'],
                     'prodi_id' => $row['prodi_id'],
                     'nim' => $row['nim'],
+                    'path' => $row['path'],
+                    'notes' => $notes,
+                    'status' => $status,
                     'submission_id' => $firstSubmission ? true : false, // true jika ada submission, false jika tidak
                     'submission_data' => $submission // Menyimpan data submission jika ada
                 ];
@@ -160,10 +170,63 @@ class AdminBerandaController extends Controller
             }
         }
 
+        $modelStatus = new Status();
+        $getStatus = $modelStatus->where('user_id', $user_id)->first();
+
+        // Memeriksa apakah ada input notes
+        if (!empty($_POST['notes'])) {
+            // Jika status ditemukan, perbarui catatan
+            if (!empty($getStatus)) {
+                $updateStatus = [
+                    'notes' => $_POST['notes'], // Memperbarui dengan catatan baru
+                ];
+                $modelStatus->update($getStatus['id'], $updateStatus);
+            } else {
+                // Jika status tidak ditemukan, buat status baru
+                $modelStatus->create([
+                    'user_id' => $user_id,
+                    'notes' => $_POST['notes'],
+                ]);
+            }
+        } else {
+            // Jika tidak ada input notes dan status ditemukan, atur notes menjadi null
+            if (!empty($getStatus)) {
+                $updateStatus = [
+                    'notes' => null,
+                ];
+                $modelStatus->update($getStatus['id'], $updateStatus);
+            }
+        }
+
         $this->redirect('admin/beranda/' . $user_id);
         // // Kirim response sukses
         // header('Content-Type: application/json'); // Mengatur header untuk JSON
         // echo json_encode(['success' => 'Status berhasil diperbarui.', 'updated' => $updatedStatus]); // Mengirim data sebagai JSON
         // exit;
+    }
+
+    public function update_status()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $id = $_POST['id'];
+            $checked = $_POST['checked'] === 'true' ? 1 : 0; // Mengubah ke format yang sesuai untuk database
+
+            $modelStatus = new Status();
+            $getStatus = $modelStatus->where('user_id', $id)->first();
+
+            if (empty($getStatus)) {
+                $modelStatus->create([
+                    'user_id' => $id,
+                    'bebas_tanggungan' => $checked,
+                ]);
+            } else {
+                $updateStatus = [
+                    'bebas_tanggungan' => $checked,
+                ];
+                $modelStatus->update($getStatus['id'], $updateStatus);
+            }
+
+            echo json_encode(['success' => true]);
+        }
     }
 }
